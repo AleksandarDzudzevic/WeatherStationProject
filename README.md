@@ -1,4 +1,4 @@
-![weather.png](weather_asbt.png)
+![weather.png](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/weatherpic.jpeg)
 
 # Unit 2: A Distributed Weather Station for ISAK
 
@@ -32,18 +32,18 @@ The
 
 # Criteria B: Design
 
-## System Diagram **SL**
-![](sysdim_sl.png)
-
-**Fig.1** shows the system diagram for the proposed solution (**SL**). The indoor variables will be measured using an Arduino microprocessor and the sensor DHT11 conencted to the local computer (Laptop) located inside a room. The outdoor variables will be requested to the remote server using a GET request to the API of the server at ```192.168.6.147/readings```. The local values are stored in a CSV database locally.
-
 ![](sysdim_hl.png)
 
 **Fig.2** shows the system diagram for the proposed solution (**HL**). The indoor variables will be measured using a Raspberry PI and four DHT11 sensors located inside a room. Four sensors are used to determine more precisely the physical values and include measurement uncertainty. The outdoor variables will be requested to the remote server using a GET request to the API of the server at ```192.168.6.147/readings```. The local values are stored in a CSV database locally and POST to the server using the API and TOKEN authentication. A laptop computer is used for remotely controlling the local Rasberry Pi using a Dekptop sharing application (VNC Viewer). (Optional) Data from the local raspberry is downloaded to the laptop for analysis and processing.
 ### List of materials:
+
 1x Rasberry Pi model 4
+
 4x DHT-11 sensor
-12x Long Wires (+5 due to dangers that mixed-gender house students encounter everyday
+
+12x Long Wires (+5 due to dangers that mixed-gender house students encounter everyday)
+
+Tape
 
 
 ## Record of Tasks
