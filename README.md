@@ -41,6 +41,8 @@ The
 
 4x DHT-11 sensor
 
+Small breadboard
+
 17x Long Wires (+5 wires due to danger of living in the mixed-gender house)
 
 Remote desktop
