@@ -49,8 +49,14 @@ Tape
 ## Record of Tasks
 | Task No | Planned Action                                                | Planned Outcome                                                                                                 | Time estimate | Target completion date | Criterion |
 |---------|---------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|---------------|------------------------|-----------|
-| 1       | Write the Problem context                        | 10min         | Nov 22                 | A         |
-
+| 1       | Write the Problem context and definition| Have a finished first version of the problem definition         | 10min         | Nov 22    | A
+| 2        | Writing the list of  materials  |  Have a full list of materials    |  5min | Nov 24   | B |
+| 3       |     |   |   |    |  |
+| 4        |     |   |   |    |  |
+| 5        |     |   |   |    |  |
+| 6        |     |   |   |    |  |
+| 7        |     |   |   |    |  |
+| 8        |     |   |   |    |  |
 ## Test Plan
 
 # Criteria C: Development
