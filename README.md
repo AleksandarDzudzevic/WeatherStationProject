@@ -41,7 +41,9 @@ The
 
 4x DHT-11 sensor
 
-12x Long Wires (+5 due to dangers that mixed-gender house students encounter everyday)
+17x Long Wires (+5 wires due to danger of living in the mixed-gender house)
+
+Remote desktop
 
 Tape
 
