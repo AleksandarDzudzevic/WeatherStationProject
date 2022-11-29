@@ -58,10 +58,10 @@ Tape
 ## Record of Tasks
 | Task No | Planned Action                                                | Planned Outcome                                                                                                 | Time estimate | Target completion date | Criterion |
 |---------|---------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|---------------|------------------------|-----------|
-| 1       | Write the Problem context and definition| Have a finished first version of the problem definition         | 10min         | Nov 22    | A
-| 2        | Writing the list of  materials  |  Have a full list of materials    |  5min | Nov 24   | B |
-| 3       |     |   |   |    |  |
-| 4        |     |   |   |    |  |
+| 1       | Brainstorm and write the problem definition | A clear problem definition on Github   | 15 minutes         | Nov 22    | A
+| 2        | Write the list of  materials  |  Have a full list of materials    |  5 minutes | Nov 24   | B |
+| 3       | Brainstorm and write the design statement | A clear design statement that suits the need of the client | 20 minutes  |  Nov 29  | A |
+| 4        | Write the Rationale for proposed solution | A clear justification that suits the client and developer.  | 10 minutes  |  Nov 29  | A |
 | 5        |     |   |   |    |  |
 | 6        |     |   |   |    |  |
 | 7        |     |   |   |    |  |
