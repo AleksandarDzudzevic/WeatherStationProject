@@ -53,10 +53,10 @@ Tape
 | 2        | Write the list of  materials  |  Have a full list of materials    |  5 minutes | Nov 24   | B |
 | 3       | Brainstorm and write the design statement | A clear design statement that suits the need of the client | 20 minutes  |  Nov 29  | A |
 | 4        | Write the Rationale for proposed solution | A clear justification that suits the client and developer.  | 10 minutes  |  Nov 29  | A |
-| 5        |   Construct the device used to collect temperature and humidity data  |  A working device that accurately collects temperature and humidity data | 30 minutes  |  Nov 30  | B |
+| 5        |   Construct the device used to collect temperature and humidity data  |  A working device that accurately collects temperature and humidity data | 45 minutes  |  Nov 30  | B |
 | 6        |   Create the code needed to accurately display data collected from the device  | The program continously collects data and stores it in a log over time.  | 20 minutes  |  Nov 30  | B |
-| 7        |     |   |   |    |  |
-| 8        |     |   |   |    |  |
+| 7        | Create a code for signing up on the server |  Allows the user to create a username and password for the server | 30 minutes  |  Dec 2  | B |
+| 8        |   Create a code for logging in on the server  | Allows the user to log into their account they had created  | 30 miinutes  |  Dec 2  | B |
 ## Test Plan
 
 # Criteria C: Development
