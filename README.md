@@ -5,7 +5,7 @@
 # Criteria A: Planning
 
 ## Problem definition
-The health center is in urgent need to solve a fast-growing problem at ISAK. Due to unoptimal humidity and temperature of the student rooms, ISAK students have been visiting nurses a lot more frequently with the issues related to soar throat. The nurses believe that the reasoning behind students sore throats is because of the humidity and temperature levels inside of student rooms. The nurses want a remote server that they can access online to check the different humidity and temperature levels at different times throughout the day. They want a server in which they can communicate with to recieve information regarding the different humiditiy and temperature levels.
+The health center is in urgent need to solve a fast-growing problem at ISAK. Due to unoptimal humidity and temperature of the student rooms, ISAK students have been visiting nurses a lot more frequently with the issues related to soar throat. The nurses believe that the reasoning behind students sore throats is because of the humidity and temperature levels inside of student rooms. The nurses want a remote server that they can access online to check the different humidity and temperature levels in the student doorms at different times throughout the day, and compare it to the optimal levels, as well as temperature and humidity levels outside. 
 
 ## Success Criteria
 
@@ -43,7 +43,7 @@ Small breadboard
 
 Remote desktop
 
-Tape
+
 
 
 ## Record of Tasks
@@ -57,7 +57,11 @@ Tape
 | 6        |   Create the code needed to accurately display data collected from the device  | The program continously collects data and stores it in a log over time.  | 20 minutes  |  Nov 30  | B |
 | 7        | Create a code for signing up on the server |  Allows the user to create a username and password for the server | 30 minutes  |  Dec 2  | B |
 | 8        |   Create a code for logging in on the server  | Allows the user to log into their account they had created  | 30 miinutes  |  Dec 2  | B |
+|9         | Create 8 seperate servers, 4 for both humidity and temperature levels. | Setup 8 servers to which the data will be automaticly sent every 5 minutes for 48 hours | 15 min| Dec 4| B|
+
 ## Test Plan
+
+## Flow Diagrams
 
 # Criteria C: Development
 
