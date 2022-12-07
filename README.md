@@ -58,7 +58,7 @@ Remote desktop
 | 7        | Create a code for signing up on the server |  Allows the user to create a username and password for the server | 30 minutes  |  Dec 2  | B |
 | 8        |   Create a code for logging in on the server  | Allows the user to log into their account they had created  | 30 miinutes  |  Dec 2  | B |
 |9         | Create 8 seperate servers, 4 for both humidity and temperature levels. | Setup 8 servers to which the data will be automaticly sent every 5 minutes for 48 hours | 15 min| Dec 4| B|
-|10        | Make a code for collecting the data and sending it to the server | Establish a connection to the server and send the obtained data|25min |Dec 6 | B |11        | Make a code for getting the data in the refined fromat and send it to the csv file, and start with data collecting | Start data collecting by making the code for csv file data input |40min| Dec 7| B|
+|10        | Make a code for collecting the data and sending it to the server | Establish a connection to the server and send the obtained data|25min |Dec 6 | B | |11        | Make a code for getting the data in the refined fromat and send it to the csv file, and start with data collecting | Start data collecting by making the code for csv file data input |40min| Dec 7| B|
 ## Test Plan
 
 ## Flow Diagrams
