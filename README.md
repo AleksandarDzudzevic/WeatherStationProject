@@ -31,17 +31,18 @@ Considering the budgetary constrains of the client and the hardware requirements
 ![](sysdim_hl.png)
 
 **Fig.2** shows the system diagram for the proposed solution (**HL**). The indoor variables will be measured using a Raspberry PI and four DHT11 sensors located inside a room. Four sensors are used to determine more precisely the physical values and include measurement uncertainty. The outdoor variables will be requested to the remote server using a GET request to the API of the server at ```192.168.6.147/readings```. The local values are stored in a CSV database locally and POST to the server using the API and TOKEN authentication. A laptop computer is used for remotely controlling the local Rasberry Pi using a Dekptop sharing application (VNC Viewer). (Optional) Data from the local raspberry is downloaded to the laptop for analysis and processing.
+
 ### List of materials:
 
-1x Rasberry Pi model 4
+1 x Rasberry Pi model 4
 
-4x DHT-11 sensor
+4 x DHT-11 sensor
 
-Small breadboard
+1x Breadboard
 
-17x Long Wires (+5 wires due to danger of living in the mixed-gender house)
+6 x Long Wires
 
-Remote desktop
+A Remote desktop
 
 
 
@@ -57,9 +58,9 @@ Remote desktop
 | 6        |   Create the code needed to accurately display data collected from the device  | The program continously collects data and stores it in a log over time.  | 20 minutes  |  Nov 30  | B |
 | 7        | Create a code for signing up on the server |  Allows the user to create a username and password for the server | 30 minutes  |  Dec 2  | B |
 | 8        |   Create a code for logging in on the server  | Allows the user to log into their account they had created  | 30 miinutes  |  Dec 2  | B |
-|9         | Create 8 seperate servers, 4 for both humidity and temperature levels. | Setup 8 servers to which the data will be automaticly sent every 5 minutes for 48 hours | 15 min| Dec 4| B|
+|9         | Create 8 seperate servers, 4 for both humidity and temperature levels. | Setup 8 servers to which the data will be automatically sent every 5 minutes for 48 hours | 15 min| Dec 4| B|
 |10        | Make a code for collecting the data and sending it to the server | Establish a connection to the server and send the obtained data|25min |Dec 6 | B | 
-|11        | Make a code for getting the data in the refined fromat and send it to the csv file, and start with data collecting | Start data collecting by making the code for csv file data input |40min| Dec 7| B|
+|11        | Make a code for getting the data in the refined format and send it to the .csv file, and start with data collecting | Start data collecting by making the code for csv file data input |40min| Dec 7| B|
 ## Test Plan
 
 ## Flow Diagrams
