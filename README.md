@@ -67,6 +67,26 @@ Remote desktop
 # Criteria C: Development
 
 ## List of techniques used
+Using functions
+
+For/while loops
+
+PIN connection validation
+
+File reading
+
+Writing in a csv file
+
+Sending data to Api servers
+
+Reading data from the Api server
+
+Plotting graphs using the aquired data (+ getting linear formula)
+
+Connecting and setting up rasberrry pi and dht11 sensors
+
+Concuding data by calculating median,mean, maximum,minimum of the data collected
+
 
 ## Development
 
