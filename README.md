@@ -77,6 +77,8 @@ File reading
 
 Writing in a csv file
 
+Loging to the Api servers by creating an account and using an access token
+
 Sending data to Api servers
 
 Reading data from the Api server
