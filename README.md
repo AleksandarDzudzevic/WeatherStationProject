@@ -63,6 +63,15 @@ A Remote desktop
 |11        | Make a code for getting the data in the refined format and send it to the .csv file, and start with data collecting | Start data collecting by making the code for csv file data input |40min| Dec 7| B|
 ## Test Plan
 
+3 functional 3 non-functional 
+
+ideas :
+
+testing creating acount to acces the api
+
+testing connection to the api
+
+
 ## Flow Diagrams
 
 # Criteria C: Development
@@ -92,7 +101,8 @@ Concuding data by calculating median,mean, maximum,minimum of the data collected
 
 
 ## Development
-
+ Parts of the code with the reasoining behind them
+ 
 
 # Criteria D: Functionality
 
