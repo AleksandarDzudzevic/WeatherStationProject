@@ -82,10 +82,15 @@ testing connection to the api
 
 ![](unit2flow1.jpg)
 
+In this flow 
+
 ![](unit2flow2.jpg)
+
+Description
 
 ![](unit2flow3.jpg)
 
+Description
 
 # Criteria C: Development
 
