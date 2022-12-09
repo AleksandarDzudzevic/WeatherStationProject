@@ -42,6 +42,8 @@ Considering the budgetary constrains of the client and the hardware requirements
 
 6 x Long Wires
 
+8 x Small Connectors
+
 A Remote desktop
 
 
@@ -63,6 +65,10 @@ A Remote desktop
 |11        | Make a code for getting the data in the refined format and send it to the .csv file, and start with data collecting | Start data collecting by making the code for csv file data input |40min| Dec 7| B|
 ## Test Plan
 
+| Test Type | Target | Procedure | Expected Outcome |
+|-----------|--------|-----------|------------------|
+| Functional | 
+
 3 functional 3 non-functional 
 
 ideas :
@@ -73,6 +79,13 @@ testing connection to the api
 
 
 ## Flow Diagrams
+
+![](unit2flow1.jpg)
+
+![](unit2flow2.jpg)
+
+![](unit2flow3.jpg)
+
 
 # Criteria C: Development
 
