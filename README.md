@@ -46,25 +46,6 @@ Considering the budgetary constrains of the client and the hardware requirements
 
 A Remote desktop
 
-
-
-
-## Record of Tasks
-| Task No | Planned Action                                                | Planned Outcome                                                                                                 | Time estimate | Target completion date | Criterion |
-|---------|---------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|---------------|------------------------|-----------|
-| 1       | Brainstorm and write the problem definition | A clear problem definition on Github   | 15 minutes         | Nov 22    | A
-| 2        | Write the list of  materials  |  Have a full list of materials    |  5 minutes | Nov 24   | B |
-| 3       | Brainstorm and write the design statement | A clear design statement that suits the need of the client | 20 minutes  |  Nov 29  | A |
-| 4        | Write the Rationale for proposed solution | A clear justification that suits the client and developer.  | 10 minutes  |  Nov 29  | A |
-| 5        |   Construct the device used to collect temperature and humidity data  |  A working device that accurately collects temperature and humidity data | 45 minutes  |  Nov 30  | B |
-| 6        |   Create the code needed to accurately display data collected from the device  | The program continously collects data and stores it in a log over time.  | 20 minutes  |  Nov 30  | B |
-| 7        | Create a code for signing up on the server |  Allows the user to create a username and password for the server | 30 minutes  |  Dec 2  | B |
-| 8        |   Create a code for logging in on the server  | Allows the user to log into their account they had created  | 30 miinutes  |  Dec 2  | B |
-|9         | Create 8 seperate servers, 4 for both humidity and temperature levels. | Setup 8 servers to which the data will be automatically sent every 5 minutes for 48 hours | 15 min| Dec 4| B|
-|10        | Make a code for collecting the data and sending it to the server | Establish a connection to the server and send the obtained data|25min |Dec 6 | B | 
-|11        | Make a code for getting the data in the refined format and send it to the .csv file, and start with data collecting | Start data collecting by making the code for CSV file data input |40min| Dec 7| B|
-|12| Implement better coding practices in the code| Have a more efficent code by using loops instead of multiple if statements, thus making the program faster and more organized|20min|Dec 9| B |
-|13| Draw and describe the flow diagrams | Flow diagrams for different parts of the solution along with a brief explanation | 45 minutes | Dec 9 | B
 ## Test Plan
 
 | Test Type | Target | Procedure | Expected Outcome |
@@ -75,6 +56,25 @@ A Remote desktop
 | Non-functional: Load testing | Testing if the program has little lag or glitches due to the amount of time the program is ran for (48 hours). Additionally, see if continously added data (readings) influence the proccessing of the program. | 1. Run the program. 2. Continously check up on the code, every 2-3 hours. | All data is up to date, and the program is 
 | Non-functional: Response time |
 | Non-functional：Code review | Reviewing if the code has adequate comments, function name, and variable name.As this reviews the quality of the code, there are no inputs. | The code will include comments explaining what is occuring within the code. Furthermore, the names of variables are simple and easy to understand. |
+
+
+## Record of Tasks
+| Task No | Planned Action                                                | Planned Outcome                                                                                                 | Time estimate | Target completion date | Criterion |
+|---------|---------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|---------------|------------------------|-----------|
+|1| Brainstorm and write the problem definition | A clear problem definition on Github   | 15 minutes         | Nov 22    | A
+|2| Write the list of  materials  |  Have a full list of materials    |  5 minutes | Nov 24   | B |
+|3| Brainstorm and write the design statement | A clear design statement that suits the need of the client | 20 minutes  |  Nov 29  | A |
+|4| Write the Rationale for proposed solution | A clear justification that suits the client and developer.  | 10 minutes  |  Nov 29  | A |
+|5|   Construct the device used to collect temperature and humidity data  |  A working device that accurately collects temperature and humidity data | 45 minutes  |  Nov 30  | B |
+|6|   Create the code needed to accurately display data collected from the device  | The program continously collects data and stores it in a log over time.  | 20 minutes  |  Nov 30  | B |
+|7| Create a code for signing up on the server |  Allows the user to create a username and password for the server | 30 minutes  |  Dec 2  | B |
+|8|   Create a code for logging in on the server  | Allows the user to log into their account they had created  | 30 miinutes  |  Dec 2  | B |
+|9| Create 8 seperate servers, 4 for both humidity and temperature levels. | Setup 8 servers to which the data will be automatically sent every 5 minutes for 48 hours | 15 min| Dec 4| B|
+|10| Make a code for collecting the data and sending it to the server | Establish a connection to the server and send the obtained data|25min |Dec 6 | B | 
+|11| Make a code for getting the data in the refined format and send it to the .csv file, and start with data collecting | Start data collecting by making the code for CSV file data input |40min| Dec 7| B|
+|12| Implement better coding practices in the code| Have a more efficent code by using loops instead of multiple if statements, thus making the program faster and more organized|20min|Dec 9| B |
+|13| Draw and describe the flow diagrams | Flow diagrams for different parts of the solution along with a brief explanation | 45 minutes | Dec 9 | B |
+|14| Write the test plans | Procedures in which one should take to test the program and descriptions of the expected outcome of each test is on Github | 45 minutes | Dec 9 | B |
 
 
 ## Flow Diagrams
