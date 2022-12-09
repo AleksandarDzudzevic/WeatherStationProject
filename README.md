@@ -62,7 +62,8 @@ A Remote desktop
 | 8        |   Create a code for logging in on the server  | Allows the user to log into their account they had created  | 30 miinutes  |  Dec 2  | B |
 |9         | Create 8 seperate servers, 4 for both humidity and temperature levels. | Setup 8 servers to which the data will be automatically sent every 5 minutes for 48 hours | 15 min| Dec 4| B|
 |10        | Make a code for collecting the data and sending it to the server | Establish a connection to the server and send the obtained data|25min |Dec 6 | B | 
-|11        | Make a code for getting the data in the refined format and send it to the .csv file, and start with data collecting | Start data collecting by making the code for csv file data input |40min| Dec 7| B|
+|11        | Make a code for getting the data in the refined format and send it to the .csv file, and start with data collecting | Start data collecting by making the code for CSV file data input |40min| Dec 7| B|
+|12| Implement better coding practices in the code| Have a more efficent code by using loops instead of multiple if statements, thus making the program faster and more organized|20min|Dec 9| B |
 ## Test Plan
 
 | Test Type | Target | Procedure | Expected Outcome |
