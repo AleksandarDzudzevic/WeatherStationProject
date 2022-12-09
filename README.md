@@ -64,34 +64,32 @@ A Remote desktop
 |10        | Make a code for collecting the data and sending it to the server | Establish a connection to the server and send the obtained data|25min |Dec 6 | B | 
 |11        | Make a code for getting the data in the refined format and send it to the .csv file, and start with data collecting | Start data collecting by making the code for CSV file data input |40min| Dec 7| B|
 |12| Implement better coding practices in the code| Have a more efficent code by using loops instead of multiple if statements, thus making the program faster and more organized|20min|Dec 9| B |
+|13| Draw and describe the flow diagrams | Flow diagrams for different parts of the solution along with a brief explanation | 45 minutes | Dec 9 | B
 ## Test Plan
 
 | Test Type | Target | Procedure | Expected Outcome |
 |-----------|--------|-----------|------------------|
-| Functional | 
-
-3 functional 3 non-functional 
-
-ideas :
-
-testing creating acount to acces the api
-
-testing connection to the api
+| Functional: Integrational testing | Login: Access Token | 1. Use the function (token). 2. Have the set credentials (username and password) in the function. | If the username and passwords match with the credentials from the remote server, the code will return an access token, which will allow the user to access the remote server that includes all the collected data (readings). If the username and password entered does not match any of the existing crendentials, the access token will not be granted to the user. |
+| Functional: Integrational testing | 
+| Functional: Integrational testing | 
+| Non-functional: Load testing | Testing if the program has little lag or glitches due to the amount of time the program is ran for (48 hours). Additionally, see if continously added data (readings) influence the proccessing of the program. | 1. Run the program. 2. Continously check up on the code, every 2-3 hours. | All data is up to date, and the program is 
+| Non-functional: Response time |
+| Non-functional：Code review | Reviewing if the code has adequate comments, function name, and variable name.As this reviews the quality of the code, there are no inputs. | The code will include comments explaining what is occuring within the code. Furthermore, the names of variables are simple and easy to understand. |
 
 
 ## Flow Diagrams
 
 ![](unit2flowchart1.jpg)
 
-Fig.3 In this flow diagram above, it shows the function that checks if the sensor is connected and working. It checks if each sensor is collecting data, and if it does, it will print a message that tells the user that sensor is connected. However, if the sensor is not connected, it will print an error message displaying that the sensor is not working. It works by using a for loop and if-statement. The if-statement runs 4 times to check if all 4 sensors are connected.
+Fig 3. In this flow diagram above, it shows the function that checks if the sensor is connected and working. It checks if each sensor is collecting data, and if it does, it will print a message that tells the user that sensor is connected. However, if the sensor is not connected, it will print an error message displaying that the sensor is not working. It works by using a for loop and if-statement. The if-statement runs 4 times to check if all 4 sensors are connected.
 
 ![](unit2flowchart2.jpg)
 
-Fig.4 In this flow diagram above, it shows the function that allows the user to gain an access token through the remote server using a username and password. It sends a request to the remote server, and inputs the credentials, and if the account exists and the crendtials are accurate within the database of the server, it returns an access token to the user which will allow them gain access to the data (readings) collected.
+Fig 4. In this flow diagram above, it shows the function that allows the user to gain an access token through the remote server using a username and password. It sends a request to the remote server, and inputs the credentials, and if the account exists and the crendtials are accurate within the database of the server, it returns an access token to the user which will allow them gain access to the data (readings) collected.
 
 ![](unit2flowchart3.jpg)
 
-Fig.5 In this flow diagram above, it shows the function that writes the collected readings into a JSON file. The file is first opened and loaded, then the new data is appended into the existing file of readings. Further after adding the readings, we use the json. dump() method which converts the python object into an equivalent JSON object and store the result into a JSON file at the working directory. 
+Fig 5. In this flow diagram above, it shows the function that writes the collected readings into a JSON file. The file is first opened and loaded, then the new data is appended into the existing file of readings. Further after adding the readings, we use the json. dump() method which converts the python object into an equivalent JSON object and store the result into a JSON file at the working directory. 
 
 # Criteria C: Development
 
