@@ -112,7 +112,7 @@ Sending data to Api servers
 
 Reading data from the Api server
 
-Plotting graphs using the aquired data (+ getting linear formula)
+Plotting graphs by using mathplot.lib and using the aquired data (+ getting quadratic formula)
 
 Connecting and setting up rasberrry pi and dht11 sensors
 
