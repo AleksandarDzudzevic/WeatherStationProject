@@ -80,7 +80,7 @@ testing connection to the api
 
 ## Flow Diagrams
 
-![](unit2flow1.jpg)
+![](unit2flowchart1.jpg)
 
 Fig.3 In this flow chart above, it shows the function that checks if the sensor is connected and working. It checks if each sensor is collecting data, and if it does, it will print a message that tells the user that sensor is connected. However, if the sensor is not connected, it will print an error message displaying that the sensor is not working. 
 
