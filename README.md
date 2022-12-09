@@ -120,6 +120,33 @@ Concuding data by calculating median,mean, maximum,minimum of the data collected
 ## Development
  Parts of the code with the reasoining behind them
  
+ The solution provides a visual representation of the Humidity and Temperature values inside a dormitory (Local) and outside the house (Remote) for a period of minimum 48 hours.
+ 
+ *proof of the 48h difference in the first and the last recording
+ 
+The local variables will be measure using a set of 4 sensors around the dormitory.
+
+*Screenshot of for sensors used,picture of the model, picture of the rasberry pi and where it was moved during recordings
+
+The solution provides a mathematical modelling for the Humidity and Temperature levels for each Local and Remote locations. (both lineal and non-lineal model)
+
+*Quadratic function graph for both remote and local
+
+The solution provides a comparative analysis for the Humidity and Temperature levels for each Local and Remote locations including mean, standad deviation, minimum, maximum, and median.
+
+*Screenshots of the graphs
+
+The Local samples are stored in a csv file and posted to the remote server.
+
+*Proof of the csv file and then proof of some data from the server
+
+Create a prediction the subsequent 12 hours for both temperature and humidity.
+
+*Will use the same part of the day from the second 24h period because it is more relatable and use the diff in the early afternoon readings as a prediction for the error bar
+
+A poster summarizing the visual representations, model and analysis is created and communicated. 
+
+*Will be uploaded here as proof
 
 # Criteria D: Functionality
 
