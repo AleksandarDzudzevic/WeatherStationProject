@@ -136,6 +136,7 @@ Plotting graphs by using mathplot.lib and using the aquired data (+ getting quad
 > We used rasberry pi 4 and 4 DHT 11 sensors to collect the data. By collecting it from multiple locations the diversity in data was achieved, allowing better representation of the humidity and temperature in thhe rooms was possible.
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/rasberrypipic.jpg)
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/locationsrasberrypi.jpg)
+![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/comparison_graphs_outside_inside.png)
 *Screenshot of for sensors used,picture of the model, picture of the rasberry pi and where it was moved during recordings
 
 ### 3 The solution provides a mathematical modelling for the Humidity and Temperature levels for each Local and Remote locations. (both lineal and non-lineal model)
