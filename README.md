@@ -136,7 +136,7 @@ Concuding data by calculating median,mean, maximum,minimum of the data collected
 
 *Screenshots of the graphs
 
-## 5 The client wanted the Local samples stored in a .csv file and posted to the remote server. We did this by using uploading recordings to the server using the following code
+## 5 The client wanted the Local samples stored in a .csv file and posted to the remote server. We did this by uploading recordings to the server using the following code
 
 > We used the following function to send the data to the server y using /reading/new endpoint on the server API. It allowed us to create a record for a sensor in the server. The user logged in is the owner of the record. 
 
@@ -176,7 +176,6 @@ print(f"It worked {datetime.now()} \n")
 ```
 ![We used a .csv file to store 48hours worth of data measured every 5 min. Each row has a time when data was recorded, tempratures and humidity from all 4 sensors, median temperature and humidity](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/crietria-c-proof5.1.png)
 
-*Proof of the csv file and then proof of some data from the server
 
 ### 6 Create a prediction the subsequent 12 hours for both temperature and humidity.
 
