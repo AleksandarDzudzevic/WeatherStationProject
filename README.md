@@ -94,7 +94,7 @@ Fig 4. In this flow diagram above, it shows the function that allows the user to
 
 ![](flowchart3.jpg)
 
-Fig 5. In this flow diagram above, it shows the function that writes the collected readings into a JSON file. The file is first opened and loaded, then the new data is appended into the existing file of readings. Further after adding the readings, we use the json. dump() method which converts the python object into an equivalent JSON object and store the result into a JSON file at the working directory. 
+Fig 5. In this flow diagram above, it shows the function that finds the range of the sensor_ids that were used while collecting temperature and humidity data. It is used to retrieve find the correct sensors on the remote server that were collected during the 48 hours. 
 
 # Criteria C: Development
 
