@@ -78,7 +78,9 @@ A Remote desktop
 |13| Draw and describe the flow diagrams | Flow diagrams for different parts of the solution along with a brief explanation | 45 minutes | Dec 9 | B |
 |14| Write the test plan (3 functional and 3 non-functional) | Procedures in which one should take to test the program and descriptions of the expected outcome of each test is on Github | 45 minutes | Dec 9 | B |
 |15| Work on the development part in criteria C related to the criteria number 5|explained CT and process behind the data recording in a .csv file and posting it on the server| 20 min| Dec 10| C|
- 
+|16|Extract the reading from the remote server outside during the 48 hours when the recording inside the studentroom took place| Have apropriate range of data from the outside sensor (done by checking if the id of the reading is a part of the certain range compatable with id-s during the 48 hours when we collected recordings inside)|35 min|Dec 10| B |
+|17| Work on the development part in criteria C related to the criteria number 2|Show the rasberry pi and the 4 sensors we used as well as the different locations inside the room from which the temperature and humidity were measured| 10 min| Dec 10| C|
+
 
 ## Flow Diagrams
 
@@ -101,6 +103,8 @@ Using functions
 
 For/while loops
 
+Defining and using functions 
+
 PIN connection validation
 
 File reading
@@ -115,10 +119,6 @@ Reading data from the Api server
 
 Plotting graphs by using mathplot.lib and using the aquired data (+ getting quadratic formula)
 
-Connecting and setting up rasberrry pi and dht11 sensors
-
-Concuding data by calculating median,mean, maximum,minimum of the data collected
-
 
 ## Development
 
@@ -127,8 +127,10 @@ Concuding data by calculating median,mean, maximum,minimum of the data collected
  
  *proof of the 48h difference in the first and the last recording
  
-###  2 The local variables will be measure using a set of 4 sensors around the dormitory.
-
+###  2 The client requested that the local variables will be measured using a set of 4 sensors around the dormitory.
+We used rasberry pi 4 and 4 DHT 11 sensors to collect the data. By collecting it from multiple locations the diversity in data was achieved, allowing better representation of the humidity and temperature in thhe rooms was possible.
+![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/rasberrypipic.jpg)
+![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/locationsrasberrypi.jpg)
 *Screenshot of for sensors used,picture of the model, picture of the rasberry pi and where it was moved during recordings
 
 ### 3 The solution provides a mathematical modelling for the Humidity and Temperature levels for each Local and Remote locations. (both lineal and non-lineal model)
