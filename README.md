@@ -128,7 +128,7 @@ Plotting graphs by using mathplot.lib and using the aquired data (+ getting quad
  *proof of the 48h difference in the first and the last recording
  
 ###  2 The client requested that the local variables will be measured using a set of 4 sensors around the dormitory.
-We used rasberry pi 4 and 4 DHT 11 sensors to collect the data. By collecting it from multiple locations the diversity in data was achieved, allowing better representation of the humidity and temperature in thhe rooms was possible.
+> We used rasberry pi 4 and 4 DHT 11 sensors to collect the data. By collecting it from multiple locations the diversity in data was achieved, allowing better representation of the humidity and temperature in thhe rooms was possible.
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/rasberrypipic.jpg)
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/locationsrasberrypi.jpg)
 *Screenshot of for sensors used,picture of the model, picture of the rasberry pi and where it was moved during recordings
