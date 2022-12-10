@@ -80,6 +80,11 @@ A Remote desktop
 |15| Work on the development part in criteria C related to the criteria number 5|explained CT and process behind the data recording in a .csv file and posting it on the server| 20 min| Dec 10| C|
 |16|Extract the reading from the remote server outside during the 48 hours when the recording inside the studentroom took place| Have apropriate range of data from the outside sensor (done by checking if the id of the reading is a part of the certain range compatable with id-s during the 48 hours when we collected recordings inside)|35 min|Dec 10| B |
 |17| Work on the development part in criteria C related to the criteria number 2|Show the rasberry pi and the 4 sensors we used as well as the different locations inside the room from which the temperature and humidity were measured| 10 min| Dec 10| C|
+|18|Code the program that plots graphs containg mean temp and humidity, and individual recordings from all the sensors|Program will produce the graphs that will be used on the poster and in section C|60min|Dec 11 |B|
+|19|Code the program that plots graphs comparison of the outside and inside the room humidity and temperature during the 48hour recording|By using quadratic equations, plot a graph which is both visually pleasing and practical in the way that the client can see he relation between the outside and inside temperature and humidity|30 min| Dec 11|B|
+|20||||||
+|21||||||
+|22||||||
 
 
 ## Flow Diagrams
