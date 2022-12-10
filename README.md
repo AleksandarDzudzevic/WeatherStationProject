@@ -192,7 +192,10 @@ print(f"It worked {datetime.now()} \n")
 ![We used a .csv file to store 48hours worth of data measured every 5 min. Each row has a time when data was recorded, tempratures and humidity from all 4 sensors, median temperature and humidity](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/crietria-c-proof5.1.png)
 
 
-### 6 Create a prediction the subsequent 12 hours for both temperature and humidity.
+### 6 The client wanted a prediction the subsequent 12 hours for both temperature and humidity.
+> We made a prediction  for the temperature and humidity for the next 12 hours which is shown in the graphs bellow, using the data from 24th to 36th hour of recording is most aplicable for the prediction, with a 4.5% margin error which was calculated by comparing the predicted weather outside from these time periods. We used plt.fillinbetween becuase it was the best way to represnt the margin error and allow the client to visually understand what range of temperature to expect for the following 12 hours. With this criteria 6 was fulfilled.
+
+![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/temperature_prediction_for_next_12h.png)
 
 *Will use the same part of the day from the second 24h period because it is more relatable and use the diff in the early afternoon readings as a prediction for the error bar
 
