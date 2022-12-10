@@ -92,7 +92,7 @@ Fig 3. In this flow diagram above, it shows the function that checks if the sens
 
 Fig 4. In this flow diagram above, it shows the function that allows the user to gain an access token through the remote server using a username and password. It sends a request to the remote server, and inputs the credentials, and if the account exists and the crendtials are accurate within the database of the server, it returns an access token to the user which will allow them gain access to the data (readings) collected.
 
-![](unit2flowchart3.jpg)
+![](flowchart3.jpg)
 
 Fig 5. In this flow diagram above, it shows the function that writes the collected readings into a JSON file. The file is first opened and loaded, then the new data is appended into the existing file of readings. Further after adding the readings, we use the json. dump() method which converts the python object into an equivalent JSON object and store the result into a JSON file at the working directory. 
 
