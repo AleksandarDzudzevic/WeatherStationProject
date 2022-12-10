@@ -136,9 +136,46 @@ Concuding data by calculating median,mean, maximum,minimum of the data collected
 
 *Screenshots of the graphs
 
-## 5 The Local samples are stored in a csv file and posted to the remote server.
+## 5 The client wanted the Local samples stored in a .csv file and posted to the remote server. We did this by using uploading recordings to the server using the following code
+
+> We used the following function to send the data to the server y using /reading/new endpoint on the server API. It allowed us to create a record for a sensor in the server. The user logged in is the owner of the record. 
+
+```.py
+def senddata(value, sensor_id):
+    new_record ={"datetime":str(datetime.isoformat(datetime.now())),"sensor_id":sensor_id, "value":value}
+    r = requests.post('http://192.168.6.142/reading/new', json=new_record, headers=auth)
+```
+
+> The client also wanted us to store the data into a csv file which we did, using the code below. We used 
+```.py
+def get_readings():
+    humidity1, temperature1 = Adafruit_DHT.read_retry(11, sensor_1_pin)
+    senddata(temperature1, sensor1tempid)
+    senddata(humidity1, sensor1humidityid)
+    humidity2, temperature2 = Adafruit_DHT.read_retry(11, sensor_2_pin)
+    senddata(temperature2, sensor2tempid)
+    senddata(humidity2, sensor2humidityid)
+    humidity3, temperature3 = Adafruit_DHT.read_retry(11, sensor_3_pin)
+    senddata(temperature3, sensor3tempid)
+    senddata(humidity3, sensor3humidityid)
+    humidity4, temperature4 = Adafruit_DHT.read_retry(11, sensor_4_pin)
+    senddata(temperature4, sensor4tempid)
+    senddata(humidity4, sensor4humidityid)
+
+    average_temp = (temperature1 + temperature2 + temperature3 + temperature4) / 4
+    average_humidity = (humidity1 + humidity2 + humidity3 + humidity4) / 4
+    median_temp = statistics.median([temperature1, temperature2, temperature3, temperature4])
+    median_humidity = statistics.median([humidity1, humidity2, humidity3, humidity4])
+    reading =(f"{temperature1},{humidity1},{temperature2},{humidity2},{temperature3},{humidity3},{temperature4},{humidity4},{datetime.isoformat(datetime.now())},{median_temp},{median_humidity}")
+    return (reading)
+
+reading=get_readings()
+with open("/home/dev/readings.csv","a") as f:
+    f.write(f"{reading} \n")
+print(f"It worked {datetime.now()} \n")
+```
 ![We used a .csv file to store 48hours worth of data measured every 5 min. Each row has a time when data was recorded, tempratures and humidity from all 4 sensors, median temperature and humidity](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/crietria-c-proof5.1.png)
-![Function used for sending the data to the server. we used it to send current time and readings to one of the 8 servers which has the apropriate id](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/criteria-c-5-2.png)
+
 *Proof of the csv file and then proof of some data from the server
 
 ### 6 Create a prediction the subsequent 12 hours for both temperature and humidity.
