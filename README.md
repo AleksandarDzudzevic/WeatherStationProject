@@ -124,11 +124,14 @@ Plotting graphs by using mathplot.lib and using the aquired data (+ getting quad
 
 
 ### 1 The client wants The solution that provides a visual representation of the Humidity and Temperature values inside a dormitory (Local) and outside the house (Remote) for a period of minimum 48 hours.
-> By using matplot.lib we have visually presented mean temperature and humidity inside the room during the 48 hours as well as readings from all the sensors individually. Outside readings will be visually compared with the mean of the readings inside the dorm. This way we allowed the client to easily see how the outside weather affects the humidity and temperature inside the room.
+> By using matplot.lib we have visually presented mean temperature and humidity inside the room during the 48 hours as well as readings from all the sensors individually. Outside readings will be visually compared with the mean of the readings inside the dorm. We presented the data through using  quadratic equation, as the lines that way are much more visible and the client can clearly see the behaviour of the data changing due to the time of the day. This way we also allowed the client to easily see how the outside weather affects the humidity and temperature inside the room. With all these features we have presented a  reliable solution to criteria number 1 of the client.
 #### Picture 1.1 shows mean humidity in the dorm and the humidity readings from all sensors individually.
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/humidity_all_sensors_mean.png)
 #### Picture 1.2 shows mean temperature in the dorm and the temperature readings from all sensors individually.
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/temp_all_sensors_mean.png)
+#### Picture 1.3 shows the relation between humidity and temperature inside the room and outside 
+![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/comparison_graphs_outside_inside.png)
+
  
  *proof of the 48h difference in the first and the last recording
  
@@ -136,7 +139,6 @@ Plotting graphs by using mathplot.lib and using the aquired data (+ getting quad
 > We used rasberry pi 4 and 4 DHT 11 sensors to collect the data. By collecting it from multiple locations the diversity in data was achieved, allowing better representation of the humidity and temperature in thhe rooms was possible.
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/rasberrypipic.jpg)
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/locationsrasberrypi.jpg)
-![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/comparison_graphs_outside_inside.png)
 *Screenshot of for sensors used,picture of the model, picture of the rasberry pi and where it was moved during recordings
 
 ### 3 The solution provides a mathematical modelling for the Humidity and Temperature levels for each Local and Remote locations. (both lineal and non-lineal model)
