@@ -146,7 +146,7 @@ def senddata(value, sensor_id):
     r = requests.post('http://192.168.6.142/reading/new', json=new_record, headers=auth)
 ```
 
-> The client also wanted us to store the data into a csv file which we did, using the code below. We used 
+> The client also wanted us to store the data into a csv file which we did, using the code below. We used get_readings function in the way which allowed us to first send data from all the sensors to the server, and then store the data in the variable which would get returned in the endo of the function allowing us to store it in the .csv file using poen f and f.write features.
 ```.py
 def get_readings():
     humidity1, temperature1 = Adafruit_DHT.read_retry(11, sensor_1_pin)
