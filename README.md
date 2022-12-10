@@ -118,33 +118,34 @@ Concuding data by calculating median,mean, maximum,minimum of the data collected
 
 
 ## Development
- Parts of the code with the reasoining behind them
- 
- The solution provides a visual representation of the Humidity and Temperature values inside a dormitory (Local) and outside the house (Remote) for a period of minimum 48 hours.
+
+
+### 1 The solution provides a visual representation of the Humidity and Temperature values inside a dormitory (Local) and outside the house (Remote) for a period of minimum 48 hours.
  
  *proof of the 48h difference in the first and the last recording
  
-The local variables will be measure using a set of 4 sensors around the dormitory.
+###  2 The local variables will be measure using a set of 4 sensors around the dormitory.
 
 *Screenshot of for sensors used,picture of the model, picture of the rasberry pi and where it was moved during recordings
 
-The solution provides a mathematical modelling for the Humidity and Temperature levels for each Local and Remote locations. (both lineal and non-lineal model)
+### 3 The solution provides a mathematical modelling for the Humidity and Temperature levels for each Local and Remote locations. (both lineal and non-lineal model)
 
 *Quadratic function graph for both remote and local
 
-The solution provides a comparative analysis for the Humidity and Temperature levels for each Local and Remote locations including mean, standad deviation, minimum, maximum, and median.
+### 4 The solution provides a comparative analysis for the Humidity and Temperature levels for each Local and Remote locations including mean, standad deviation, minimum, maximum, and median.
 
 *Screenshots of the graphs
 
-The Local samples are stored in a csv file and posted to the remote server.
-
+## 5 The Local samples are stored in a csv file and posted to the remote server.
+![We used a .csv file to store 48hours worth of data measured every 5 min. Each row has a time when data was recorded, tempratures and humidity from all 4 sensors, median temperature and humidity](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/crietria-c-proof5.1.png)
+![Function used for sending the data to the server. we used it to send current time and readings to one of the 8 servers which has the apropriate id](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/criteria-c-5-2.png)
 *Proof of the csv file and then proof of some data from the server
 
-Create a prediction the subsequent 12 hours for both temperature and humidity.
+### 6 Create a prediction the subsequent 12 hours for both temperature and humidity.
 
 *Will use the same part of the day from the second 24h period because it is more relatable and use the diff in the early afternoon readings as a prediction for the error bar
 
-A poster summarizing the visual representations, model and analysis is created and communicated. 
+### 7 A poster summarizing the visual representations, model and analysis is created and communicated. 
 
 *Will be uploaded here as proof
 
