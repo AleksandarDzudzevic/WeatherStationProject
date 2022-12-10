@@ -124,7 +124,10 @@ Plotting graphs by using mathplot.lib and using the aquired data (+ getting quad
 
 
 ### 1 The client wants The solution that provides a visual representation of the Humidity and Temperature values inside a dormitory (Local) and outside the house (Remote) for a period of minimum 48 hours.
-> By using matplot.lib we have visually presented mean temperature and humidity inside the room during the 48 hours as well as readings from all the sensors individually. Outside readings will be visually compared with the mean of the readings inside the dorm. We presented the data through using  quadratic equation, as the lines that way are much more visible and the client can clearly see the behaviour of the data changing due to the time of the day. This way we also allowed the client to easily see how the outside weather affects the humidity and temperature inside the room. With all these features we have presented a  reliable solution to criteria number 1 of the client.
+> By using matplot.lib we have visually presented mean temperature and humidity inside the room during the 48 hours as well as readings from all the sensors individually. For the mean readings of temperature and humidity inside(pic 1.1 and 1.2) we used plt.bar and plt.stem so that the data will be presented in the way which makes it easier to visually understand the change in the temperature and humidity througout the day.
+
+>   Outside readings will be visually compared with the mean of the readings inside the dorm. We presented the data through using  quadratic equation, as the lines that way are much more visible and the client can clearly see the behaviour of the data changing due to the time of the day. This way we also allowed the client to easily see how the outside weather affects the humidity and temperature inside the room. With all these features we have presented a reliable solution to the request stated in criteria number 1 of the client.
+
 #### Picture 1.1 shows mean humidity in the dorm and the humidity readings from all sensors individually.
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/humidity_all_sensors_mean.png)
 #### Picture 1.2 shows mean temperature in the dorm and the temperature readings from all sensors individually.
