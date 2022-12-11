@@ -136,27 +136,27 @@ print(f"It worked {datetime.now()} \n")
 # Criteria C: Development
 
 ## List of techniques used
-Functions
+- Functions
 
-Lists
+- Lists
 
-For loops
+- For loops
 
-While loops
+- While loops
 
-PIN connection validation
+- PIN connection validation
 
-File reading
+- File reading
 
-Writing in a csv file
+- Writing in a csv file
 
-Loging to the Api servers 
+- Loging to the Api servers 
 
-Sending data to Api servers
+- Sending data to Api servers
 
-Reading data from the Api server
+- Reading data from the Api server
 
-Plotting graphs
+- Plotting graphs
 
 
 ## Development
