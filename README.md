@@ -136,7 +136,7 @@ Plotting graphs by using mathplot.lib and using the aquired data (+ getting quad
 #### Picture 1.1 shows mean humidity in the dorm and the humidity readings from all sensors individually.
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/humidity_all_sensors_mean.png)
 #### Picture 1.2 shows mean temperature in the dorm and the temperature readings from all sensors individually.
-![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/temp_all_sensors_mean.png)
+![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/temp_allsensors_mean.png)
 #### Picture 1.3 shows the relation between humidity and temperature inside the room and outside 
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/comparison_graphs_outside_inside.png)
 
