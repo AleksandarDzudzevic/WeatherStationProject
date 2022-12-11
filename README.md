@@ -101,6 +101,35 @@ Fig 4. In this flow diagram above, it shows the function that allows the user to
 
 Fig 5. In this flow diagram above, it shows the function that extracts the data from the sensors with an id within the appropriate range. The range of the sensor_ids that were used while collecting temperature and humidity data during the 48 hour procedure of data collecting inside the room. By using this function only the relavant data during that time will be used and later on presented, preventing any mistakes in the data corelation between the readings inside and outside the room.
 
+## Data storing
+#### Data consisting of the humidity and temperature levels during the 48-hour period when the recording was done was both recorded in a csv file and posted on the server. The code used for this is given below and the example of the readings stored in a .csv file is given in Picture 5.1 in criteria C.
+```.py
+def get_readings(): #Intentionally not done in a for loop because this way we could see if there is an error with data sending we knowwhich sensor is the problem
+    humidity1, temperature1 = Adafruit_DHT.read_retry(11, sensor_1_pin)
+    senddata(temperature1, sensor1tempid)
+    senddata(humidity1, sensor1humidityid)
+    humidity2, temperature2 = Adafruit_DHT.read_retry(11, sensor_2_pin)
+    senddata(temperature2, sensor2tempid)
+    senddata(humidity2, sensor2humidityid)
+    humidity3, temperature3 = Adafruit_DHT.read_retry(11, sensor_3_pin)
+    senddata(temperature3, sensor3tempid)
+    senddata(humidity3, sensor3humidityid)
+    humidity4, temperature4 = Adafruit_DHT.read_retry(11, sensor_4_pin)
+    senddata(temperature4, sensor4tempid)
+    senddata(humidity4, sensor4humidityid)
+
+    average_temp = (temperature1 + temperature2 + temperature3 + temperature4) / 4
+    average_humidity = (humidity1 + humidity2 + humidity3 + humidity4) / 4
+    median_temp = statistics.median([temperature1, temperature2, temperature3, temperature4])
+    median_humidity = statistics.median([humidity1, humidity2, humidity3, humidity4])
+    reading =(f"{temperature1},{humidity1},{temperature2},{humidity2},{temperature3},{humidity3},{temperature4},{humidity4},{datetime.isoformat(datetime.now())},{median_temp},{median_humidity}")
+    return (reading)
+
+reading=get_readings()
+with open("/home/dev/readings.csv","a") as f:
+    f.write(f"{reading} \n")
+print(f"It worked {datetime.now()} \n")
+```
 # Criteria C: Development
 
 ## List of techniques used
@@ -215,6 +244,7 @@ with open("/home/dev/readings.csv","a") as f:
     f.write(f"{reading} \n")
 print(f"It worked {datetime.now()} \n")
 ```
+#### Picture 5.1 shows the recorded data stored in the .csv file. The data was measured everyb5 minutes for 48 hours for a totl of 576 data units.
 ![We used a .csv file to store 48hours worth of data measured every 5 min. Each row has a time when data was recorded, tempratures and humidity from all 4 sensors, median temperature and humidity](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/crietria-c-proof5.1.png)
 
 
