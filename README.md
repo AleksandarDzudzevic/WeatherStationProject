@@ -166,6 +166,106 @@ Plotting graphs
 
 >   Outside readings will be visually compared with the mean of the readings inside the dorm. We presented the data through using  quadratic equation, as the lines that way are much more visible and the client can clearly see the behaviour of the data changing due to the time of the day. This way we also allowed the client to easily see how the outside weather affects the humidity and temperature inside the room. With all these features we have presented a reliable solution to the request stated in criteria number 1 of the client.
 
+We fulfilled criteria 1 by first using Decomposing part of CT and divided graph plotting into separate parts of the code. The Code 1.1  and 1.2 plots the representation of humidity and temperature readings during the 48h period. They consists of pattern recognition for calculating and storing mean value of the data from all 4 sensors,for smoothing data making the graphs visibility better, and for plotting of separate graphs for sensors individualy.
+
+The outside data was presented using the comparison graph (Figure 1.3) The code for this (Code 1.3) was developed by first decomposing data into humidity and temperature segment. To get the data we developed an algorithm (Code 1.4) which checks if the id of the reading is in the certain range which represents the time period when 48hours of recording happend.
+#### Code 1.1 Shows code used for plotting graphs for humidity data recorded during 48 hours.
+```.py
+# Graph for humidity
+sensor_data = []
+for s in sensors_humidity:
+    data = get_sensor(readings, s)
+    x2,data_smth = smoothing(data)
+    sensor_data.append((data_smth))
+
+for i in range (len(sensor_data[0])) :
+    d = [sensor_data[x][i] for x in range (len(sensors_humidity))]
+    mean_per_hour_hum.append(sum(d)/len(sensors_humidity))
+
+fig = plt.figure(figsize=(10,8))
+# from matplot.lib.gridspec import GridSpec
+grid = GridSpec(4,4,figure=fig)
+#create the big plot
+box1= fig.add_subplot(grid[0:4,0:3])
+plt.bar(x2,mean_per_hour_hum,color='#102099')
+plt.ylim([15,30])# shows Y axis from _ to _ (helps with visibility)
+plt.title(f"Humidity of local sensor inside 13:05 8.12.2022 - 13:05 10.12.2022")
+plt.xlabel("Hours")
+plt.ylabel("Humidity (%)")
+
+my_colors = ["#7fffcc", "#34ff45","#44ffff","#ff3344"]
+for i in range(len(sensors_humidity)):
+    box2 = fig.add_subplot(grid[i,3])
+    plt.plot(x2,sensor_data[i],color = my_colors[i])
+    plt.title(f"Sensor #{sensors_humidity[i]}")
+    plt.ylim([15,55])# shows Y axis from _ to _ (helps with visibility)
+ ```
+#### Code 1.2 Shows code used for plotting graphs for temperature data recorded during 48 hours.
+```.py
+fig = plt.figure(figsize=(10,8))
+# from matplot.lib.gridspec import GridSpec
+grid = GridSpec(4,4,figure=fig)
+#create the big plot
+box1= fig.add_subplot(grid[0:4,0:3])
+plt.stem(x,mean_per_hour_temp)
+plt.title(f"Temperature of local sensor inside 13:05 8.12.2022 - 13:05 10.12.2022")
+plt.xlabel("Hours")
+plt.ylabel("Temp (Celsius)")
+plt.ylim([10,28])
+my_colors = ["#7fffcc", "#34ff45","#44ffff","#ff3344"]
+for i in range(len(sensors_temp)):
+    box2 = fig.add_subplot(grid[i,3])
+    plt.plot(x,sensor_data[i],color = my_colors[i])
+    plt.title(f"Sensor #{sensors_temp[i]}")
+    plt.ylim([10,28]) # shows Y axis from _ to _ (helps with visibility)
+plt .show()
+```
+#### Code 1.3 Shows the part of the program used to plot comparison graphs, allowing client to visually understand the relationship between the outside and inside data
+```.py
+plt.subplot(2,1,1)
+x3,mean_temp_out=smoothing(temperature_readings_out)
+y_quad=[]
+y_quad4=[]
+p0,p1,p2 = np.polyfit(x3,mean_temp_out,2)#2 means power of 2
+q0,q1,q2 = np.polyfit(x3,mean_per_hour_temp,2)#2 means power of 2
+
+for i in x3:
+    y_quad.append(p0*(i**2)+p1*i+p2)
+    y_quad4.append(q0*(i**2)+q1*i+q2)
+
+plt.plot(x3,y_quad,color="blue")
+plt.title(f"Comparison:mean outside temp(BLUE) vs mean inside temp(RED)13:05 8.12.2022 - 13:05 10.12.2022")
+plt.xlabel("Hours")
+plt.ylabel("Temp (Celsius)")
+plt.plot(x3,y_quad4,color='red')
+
+plt.subplot(2,1,2)
+x4,mean_hum_out=smoothing(humidity_readings_out)
+y_quad2=[]
+y_quad3=[]
+p0,p1,p2 = np.polyfit(x3,mean_hum_out,2)#2 means power of 2
+q0,q1,q2 = np.polyfit(x3,mean_per_hour_hum,2)#2 means power of 2
+
+for i in x4:
+    y_quad2.append(p0*(i**2)+p1*i+p2)
+    y_quad3.append(q0*(i**2)+q1*i+q2)
+
+plt.plot(x4,y_quad2,color="blue")
+plt.plot(x4,y_quad3,color='red')
+plt.title(f"Comparison:mean outside humidity(BLUE) vs mean inside humidity(RED)13:05 8.12.2022 - 13:05 10.12.2022")
+plt.xlabel("Hours")
+plt.ylabel("Humidity (%)")
+plt.show()
+```
+#### Code 1.4 Shows the algorithm used to only acquire the data apropriate for the needed time period.
+```.py def get_sensor(readings: list, id: int) -> list:
+    T = []
+    for r in readings:
+        if r["sensor_id"] == id and r["id"] > 31847 and r[
+            "id"] < 44980:  # This is the id range for the 48hour period that we chose
+            T.append(r['value'])
+    return T
+  ```
 #### Figure 1.1 shows mean humidity in the dorm and the humidity readings from all sensors individually.
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/humidity_all_sensors_mean.png)
 #### Figure 1.2 shows mean temperature in the dorm and the temperature readings from all sensors individually.
@@ -177,12 +277,16 @@ Plotting graphs
 
 ### 2. The client requested that the local variables will be measured using a set of 4 sensors around the dormitory.
 > We used rasberry pi 4 and 4 DHT 11 sensors to collect the data. By collecting it from multiple locations the diversity in data was achieved, allowing better representation of the humidity and temperature in thhe rooms was possible. The locations were changed during the 48 hour period, with location 1 being the main one where the majority of data was recorded. This is because it is distanced further from the window than location 1 but closer than location 3, so the data gives us what is closest to an avarage of the whole room. By doing this we fulfilled client's request for criteria 2.
-> In adition to this, to make sure the data is being emasured every 5 minutes without any mistakes, we implemented a procedure in the code which checks if all the sensors are properly connected and working, allowing us to interven in the shortest period of tim e if neccesery. The code to this is given under the figure 2.2. The procedure was put in the while loop which checked all sensors, madking the code visually better in adition to faster execustion time compared to previously, when we used 4 if statements.
+> In adition to this, to make sure the data is being emasured every 5 minutes without any mistakes, we implemented a procedure in the code which checks if all the sensors are properly connected and working, allowing us to interven in the shortest period of tim e if neccesery. The code to this is given under the figure 2.2. 
+
+We first developed code that would check if all the sensors are connected and working. Instead of using 4 if statements, we used the pattern recognition part of CT making the for loop that will execute the procedure more eficiently and making the code more visually pleasing.
+
 #### Figure 2.1 shows Rsberry Pi connected to 4 DHT 11 sensors which recorded the data that client requested.
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/rasberrypipic.jpg)
 #### Figure 2.2 shows the location inside the room where the data gathering took place.
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/locationsrasberrypi.jpg)
 #### Figure 2.1 shows the part of the program that was used to monitor if the sensors are working during the 48hour period.
+#### Code 2.1 
 ```.py
 access_token=token()
 
@@ -199,10 +303,13 @@ for i in range(4):
 *Screenshot of for sensors used,picture of the model, picture of the rasberry pi and where it was moved during recordings
 
 ### 3. The client requested that the solution provides a mathematical modelling for the Humidity and Temperature levels for each Local and Remote locations. (both lineal and non-lineal model)
-> We fulfilled this request for the following: comparison of the humidity and temperature levels inside and outside the student room (Figure 3.1), prediction of humidity level during the subsequent 12 hour period after the recordings took place. This is shown in the Figure 3.2. We have decided to use mathematical modelling when providing the visual representation for these examples due to the advantage of having data clearly separated and the relations between outside and inside clearly visible and easy to understand. For the humidity prediction we used this because unlike the temperature prediction, humidity varied a lot more with a bigger marginal error so the quadratic equation allowed us to present the expected trend of the humidity during this time periof which was the main goal of that graph. With this criteria number 3 was fulfilled.
+> We fulfilled this request for the following: comparison of the humidity and temperature levels inside and outside the student room (Figure 3.1), prediction of humidity level during the subsequent 12 hour period after the recordings took place. This is shown in the Figure 3.2. We have decided to use mathematical modelling when providing the visual representation for these examples due to the advantage of having data clearly separated and the relations between outside and inside clearly visible and easy to understand. For the humidity prediction we used this because unlike the temperature prediction, humidity varied a lot more with a bigger marginal error so the quadratic equation allowed us to present the expected trend of the humidity during this time period which was the main goal of that graph. With this criteria number 3 was fulfilled.
+
+The development of the part of the program that fulfilled this criteria was first decomposed into 2 parts. Showing relations using mathematical modeling, and showing predictions using mathematical modeling. The code for the relations between data (Code 1.3) was developed by decomposing it into two subplots showing the relation between humidities and temperatures separately. Quadratic formula was aquired using np.polyfit and then put into an algorithm which would collect it into the list allowing the cretion of non-linear graphs.
+
 #### Figure 3.1 shows the relation between humidity and temperature inside the room and outside using quadratic formlua
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/comparison_graphs_outside_inside.png)
-#### Figure 3.2 shows the prediction of the humidity in the subsequent 12 hours after the measuring took place.
+#### Figure 3.2 shows the linear graphing for the prediction of the humidity in the subsequent 12 hours after the measuring took place.
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/humidity_prediciton_fot_next12h.png)
 *Quadratic function graph for both remote and local
 
@@ -214,6 +321,12 @@ for i in range(4):
 
 > We used the following function to send the data to the server y using /reading/new endpoint on the server API. It allowed us to create a record for a sensor in the server. The user logged in is the owner of the record. 
 
+The procedure behind this is that we needed to decompose problem into the following:
+1) Sending data to the server (Code 5.1)
+2) Putting the data into a .csv file (Code 5.2)
+
+#### Code 5.1 Abstracting part of CT- defining a function used to post the recordings.
+
 ```.py
 def senddata(value, sensor_id):
     new_record ={"datetime":str(datetime.isoformat(datetime.now())),"sensor_id":sensor_id, "value":value}
@@ -221,6 +334,8 @@ def senddata(value, sensor_id):
 ```
 
 > The client also wanted us to store the data into a csv file which we did, using the code below. We used get_readings function in the way which allowed us to first send data from all the sensors to the server, and then store the data in the variable which would get returned in the endo of the function allowing us to store it in the .csv file using poen f and f.write features.
+
+#### Code 5.2 Getting the readings from all sensors  and putting them into a .csv file(The recognition of the pattern  was present but it was not done, explained in the commemnt)
 ```.py
 def get_readings(): #Intentionally not done in a for loop because this way we could see if there is an error with data sending we knowwhich sensor is the problem
     humidity1, temperature1 = Adafruit_DHT.read_retry(11, sensor_1_pin)
@@ -254,6 +369,48 @@ print(f"It worked {datetime.now()} \n")
 
 ### 6. The client wanted a prediction the subsequent 12 hours for both temperature and humidity.
 > We made a prediction  for the temperature and humidity for the next 12 hours which is shown in the graphs bellow (pictures 6.1 & 6.2), using the data from 24th to 36th hour of recording is most aplicable for the prediction, with a 4.5% margin error which was calculated by comparing the predicted temperature outside from these time periods and a +1.5% or 1.5% humidity range for the margin error for humidity prediction whcih was calculated based on how much data varied throughout recordings. We used plt.fillinbetween and plt.errorbar becuase it was the best way to represnt the margin error and allow the client to visually understand what range of temperature to expect for the following 12 hours. With this criteria 6 was fulfilled.
+
+We developed a program that fulfilled client's criteria by calculating the coefficents of quadratic equations for the graph using np.polyfit, and then an algorithm which stored the data which was then plotted. The margin error was calculating by dividing the difference in data at that time period during the two days.
+#### Code 6.1
+```.py
+plt.subplot(2,1,1)
+x3,mean_temp_out=smoothing(temperature_readings_out)
+y_quad=[]
+y_quad4=[]
+p0,p1,p2 = np.polyfit(x3,mean_temp_out,2)#2 means power of 2
+q0,q1,q2 = np.polyfit(x3,mean_per_hour_temp,2)#2 means power of 2
+
+for i in x3:
+    y_quad.append(p0*(i**2)+p1*i+p2)
+    y_quad4.append(q0*(i**2)+q1*i+q2)
+
+plt.plot(x3,y_quad,color="blue")
+plt.title(f"Comparison:mean outside temp(BLUE) vs mean inside temp(RED)13:05 8.12.2022 - 13:05 10.12.2022")
+plt.xlabel("Hours")
+plt.ylabel("Temp (Celsius)")
+plt.plot(x3,y_quad4,color='red')
+
+```
+#### Code 6.2
+```.py
+plt.subplot(2,1,2)
+x4,mean_hum_out=smoothing(humidity_readings_out)
+y_quad2=[]
+y_quad3=[]
+p0,p1,p2 = np.polyfit(x3,mean_hum_out,2)#2 means power of 2
+q0,q1,q2 = np.polyfit(x3,mean_per_hour_hum,2)#2 means power of 2
+
+for i in x4:
+    y_quad2.append(p0*(i**2)+p1*i+p2)
+    y_quad3.append(q0*(i**2)+q1*i+q2)
+
+plt.plot(x4,y_quad2,color="blue")
+plt.plot(x4,y_quad3,color='red')
+plt.title(f"Comparison:mean outside humidity(BLUE) vs mean inside humidity(RED)13:05 8.12.2022 - 13:05 10.12.2022")
+plt.xlabel("Hours")
+plt.ylabel("Humidity (%)")
+```
+
 #### Figure 6.1 shows the prediction of the temperature in the room for the subsequent 12 hours after the measuring took place.
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/temperature_prediction_for_next_12h.png)
 #### Figure 6.2 shows the prediction of the humidity in the room for the subsequent 12 hours after the measuring took place with the apropriate margin error.
