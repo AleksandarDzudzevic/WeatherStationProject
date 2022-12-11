@@ -52,11 +52,11 @@ A Remote desktop
 
 | Test Type | Target | Procedure | Expected Outcome |
 |-----------|--------|-----------|------------------|
+| Functional: Integrational testing | User Sign Up  | 1. Enter the desired username and password 2. Try to sign up with the same username | The first time the username and password is set, the program should not return any error message and exit as normal. When the same username is used to attempt and create a new account, the program will return and error message, as the username is already taken. |
 | Functional: Integrational testing | Login: Access Token | 1. Use the function (token). 2. Have the set credentials (username and password) in the function. | If the username and passwords match with the credentials from the remote server, the code will return an access token, which will allow the user to access the remote server that includes all the collected data (readings). If the username and password entered does not match any of the existing crendentials, the access token will not be granted to the user. |
-| Functional: Integrational testing | 
-| Functional: Integrational testing | 
+| Functional: Integrational testing | Sensor connectivity | 1. Connect all sensors to breadboard 2. Run get_readings function | The program should return readings for all sensors connected, and if there is an error within any of the sensors, an error message should appear. |
 | Non-functional: Load testing | Testing if the program has little lag or glitches due to the amount of time the program is ran for (48 hours). Additionally, see if continously added data (readings) influence the proccessing of the program. | 1. Run the program. 2. Continously check up on the code, every 2-3 hours. | All data is up to date, and the program is 
-| Non-functional: Response time |
+| Non-functional: Response time | Testing if the sensor responds quickly to the running program and see how long it takes for the sensor to register and print out the current temperature and humidity| 1. Run the basic program that aims to print the current temperature and humidity the sensor collects.| The program returns the swiftly returns the current temperature and humidity the sensor collects without any lag or delay. |
 | Non-functional：Code review | Reviewing if the code has adequate comments, function name, and variable name.As this reviews the quality of the code, there are no inputs. | The procedure included a review of the code from a external developer who is not familiar with techniques used in it. The developer then gave feedback on which parts are not understandable and names of which variables are not logical when looking at the purpose of the variable.|The code will include comments explaining what is occuring within the code. Furthermore, the names of variables are simple and it is easy to understand what is their usage in the program |
 
 
@@ -337,7 +337,7 @@ def senddata(value, sensor_id):
 
 #### Code 5.2 Getting the readings from all sensors  and putting them into a .csv file(The recognition of the pattern  was present but it was not done, explained in the commemnt)
 ```.py
-def get_readings(): #Intentionally not done in a for loop because this way we could see if there is an error with data sending we knowwhich sensor is the problem
+def get_readings(): #Intentionally not done in a for loop because this way we could see if there is an error with data sending we know which sensor is the problem
     humidity1, temperature1 = Adafruit_DHT.read_retry(11, sensor_1_pin)
     senddata(temperature1, sensor1tempid)
     senddata(humidity1, sensor1humidityid)
