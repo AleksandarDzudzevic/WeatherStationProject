@@ -189,7 +189,7 @@ def senddata(value, sensor_id):
 
 > The client also wanted us to store the data into a csv file which we did, using the code below. We used get_readings function in the way which allowed us to first send data from all the sensors to the server, and then store the data in the variable which would get returned in the endo of the function allowing us to store it in the .csv file using poen f and f.write features.
 ```.py
-def get_readings():
+def get_readings(): #Intentionally not done in a for loop because this way we could see if there is an error with data sending we knowwhich sensor is the problem
     humidity1, temperature1 = Adafruit_DHT.read_retry(11, sensor_1_pin)
     senddata(temperature1, sensor1tempid)
     senddata(humidity1, sensor1humidityid)
