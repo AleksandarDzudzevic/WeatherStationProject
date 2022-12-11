@@ -144,8 +144,24 @@ Plotting graphs by using mathplot.lib and using the aquired data (+ getting quad
 
 ###  2 The client requested that the local variables will be measured using a set of 4 sensors around the dormitory.
 > We used rasberry pi 4 and 4 DHT 11 sensors to collect the data. By collecting it from multiple locations the diversity in data was achieved, allowing better representation of the humidity and temperature in thhe rooms was possible. The locations were changed during the 48 hour period, with location 1 being the main one where the majority of data was recorded. This is because it is distanced further from the window than location 1 but closer than location 3, so the data gives us what is closest to an avarage of the whole room. By doing this we fulfilled client's request for criteria 2.
+> In adition to this, to make sure the data is being emasured every 5 minutes without any mistakes, we implemented a procedure in the code which checks if all the sensors are properly connected and working, allowing us to interven in the shortest period of tim e if neccesery. The code to this is given under the picture 2.2. The procedure was put in the while loop which checked all sensors, madking the code visually better in adition to faster execustion time compared to previously, when we used 4 if statements.
+#### Picture 2.1 shows Rsberry Pi connected to 4 DHT 11 sensors which recorded the data that client requested.
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/rasberrypipic.jpg)
+#### Picture 2.2 shows the location inside the room where the data gathering took place.
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/locationsrasberrypi.jpg)
+```.py
+access_token=token()
+
+auth = {"Authorization": f"Bearer {access_token}"}
+list = [sensor_1_pin,sensor_2_pin,sensor_3_pin,sensor_4_pin]
+for i in range(4):
+    if Adafruit_DHT.read_retry(11,list[i]) is not None:
+        print(f"Sensor {i+1} is connected")
+    else:
+        print(f" Sensor {i+1} is Not Working")
+        exit(f"Sensor {i+1} is not working")
+   ```
+ 
 *Screenshot of for sensors used,picture of the model, picture of the rasberry pi and where it was moved during recordings
 
 ### 3 The solution provides a mathematical modelling for the Humidity and Temperature levels for each Local and Remote locations. (both lineal and non-lineal model)
