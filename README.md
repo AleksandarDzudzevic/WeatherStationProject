@@ -128,7 +128,7 @@ Plotting graphs by using mathplot.lib and using the aquired data (+ getting quad
 ## Development
 
 
-### 1 The client wants The solution that provides a visual representation of the Humidity and Temperature values inside a dormitory (Local) and outside the house (Remote) for a period of minimum 48 hours.
+### 1. The client wants The solution that provides a visual representation of the Humidity and Temperature values inside a dormitory (Local) and outside the house (Remote) for a period of minimum 48 hours.
 > By using matplot.lib we have visually presented mean temperature and humidity inside the room during the 48 hours as well as readings from all the sensors individually. For the mean readings of temperature and humidity inside(pic 1.1 and 1.2) we used plt.bar and plt.stem so that the data will be presented in the way which makes it easier to visually understand the change in the temperature and humidity througout the day.
 
 >   Outside readings will be visually compared with the mean of the readings inside the dorm. We presented the data through using  quadratic equation, as the lines that way are much more visible and the client can clearly see the behaviour of the data changing due to the time of the day. This way we also allowed the client to easily see how the outside weather affects the humidity and temperature inside the room. With all these features we have presented a reliable solution to the request stated in criteria number 1 of the client.
@@ -142,7 +142,7 @@ Plotting graphs by using mathplot.lib and using the aquired data (+ getting quad
 
  
 
-###  2 The client requested that the local variables will be measured using a set of 4 sensors around the dormitory.
+### 2. The client requested that the local variables will be measured using a set of 4 sensors around the dormitory.
 > We used rasberry pi 4 and 4 DHT 11 sensors to collect the data. By collecting it from multiple locations the diversity in data was achieved, allowing better representation of the humidity and temperature in thhe rooms was possible. The locations were changed during the 48 hour period, with location 1 being the main one where the majority of data was recorded. This is because it is distanced further from the window than location 1 but closer than location 3, so the data gives us what is closest to an avarage of the whole room. By doing this we fulfilled client's request for criteria 2.
 > In adition to this, to make sure the data is being emasured every 5 minutes without any mistakes, we implemented a procedure in the code which checks if all the sensors are properly connected and working, allowing us to interven in the shortest period of tim e if neccesery. The code to this is given under the picture 2.2. The procedure was put in the while loop which checked all sensors, madking the code visually better in adition to faster execustion time compared to previously, when we used 4 if statements.
 #### Picture 2.1 shows Rsberry Pi connected to 4 DHT 11 sensors which recorded the data that client requested.
@@ -165,7 +165,7 @@ for i in range(4):
  
 *Screenshot of for sensors used,picture of the model, picture of the rasberry pi and where it was moved during recordings
 
-### 3 The client requested that the solution provides a mathematical modelling for the Humidity and Temperature levels for each Local and Remote locations. (both lineal and non-lineal model)
+### 3. The client requested that the solution provides a mathematical modelling for the Humidity and Temperature levels for each Local and Remote locations. (both lineal and non-lineal model)
 > We fulfilled this request for the following: comparison of the humidity and temperature levels inside and outside the student room (Picture 3.1), prediction of humidity level during the subsequent 12 hour period after the recordings took place. This is shown in the Picture 3.2. We have decided to use mathematical modelling when providing the visual representation for these examples due to the advantage of having data clearly separated and the relations between outside and inside clearly visible and easy to understand. For the humidity prediction we used this because unlike the temperature prediction, humidity varied a lot more with a bigger marginal error so the quadratic equation allowed us to present the expected trend of the humidity during this time periof which was the main goal of that graph. With this criteria number 3 was fulfilled.
 #### Picture 3.1 shows the relation between humidity and temperature inside the room and outside using quadratic formlua
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/comparison_graphs_outside_inside.png)
@@ -173,11 +173,11 @@ for i in range(4):
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/humidity_prediciton_fot_next12h.png)
 *Quadratic function graph for both remote and local
 
-### 4 The solution provides a comparative analysis for the Humidity and Temperature levels for each Local and Remote locations including mean, standad deviation, minimum, maximum, and median.
+### 4. The solution provides a comparative analysis for the Humidity and Temperature levels for each Local and Remote locations including mean, standad deviation, minimum, maximum, and median.
 
 *Screenshots of the graphs
 
-## 5 The client wanted the Local samples stored in a .csv file and posted to the remote server. We did this by uploading recordings to the server using the following code
+### 5. The client wanted the Local samples stored in a .csv file and posted to the remote server. We did this by uploading recordings to the server using the following code
 
 > We used the following function to send the data to the server y using /reading/new endpoint on the server API. It allowed us to create a record for a sensor in the server. The user logged in is the owner of the record. 
 
@@ -218,7 +218,7 @@ print(f"It worked {datetime.now()} \n")
 ![We used a .csv file to store 48hours worth of data measured every 5 min. Each row has a time when data was recorded, tempratures and humidity from all 4 sensors, median temperature and humidity](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/crietria-c-proof5.1.png)
 
 
-### 6 The client wanted a prediction the subsequent 12 hours for both temperature and humidity.
+### 6. The client wanted a prediction the subsequent 12 hours for both temperature and humidity.
 > We made a prediction  for the temperature and humidity for the next 12 hours which is shown in the graphs bellow (pictures 6.1 & 6.2), using the data from 24th to 36th hour of recording is most aplicable for the prediction, with a 4.5% margin error which was calculated by comparing the predicted temperature outside from these time periods and a +1.5% or 1.5% humidity range for the margin error for humidity prediction. We used plt.fillinbetween and plt.errorbar becuase it was the best way to represnt the margin error and allow the client to visually understand what range of temperature to expect for the following 12 hours. With this criteria 6 was fulfilled.
 #### Picture 6.1 shows the prediction of the temperature in the room for the subsequent 12 hours after the measuring took place.
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/temperature_prediction_for_next_12h.png)
@@ -226,7 +226,7 @@ print(f"It worked {datetime.now()} \n")
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/humidity_prediciton_fot_next12h.png)
 *Will use the same part of the day from the second 24h period because it is more relatable and use the diff in the early afternoon readings as a prediction for the error bar
 
-### 7 A poster summarizing the visual representations, model and analysis is created and communicated. 
+### 7. A poster summarizing the visual representations, model and analysis is created and communicated. 
 
 *Will be uploaded here as proof
 
