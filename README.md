@@ -83,9 +83,9 @@ A Remote desktop
 |18|Code the program that plots graphs containg mean temp and humidity, and individual recordings from all the sensors|Program will produce the graphs that will be used on the poster and in section C|60min|Dec 10 |B|
 |19|Code the program that plots graphs comparison of the outside and inside the room humidity and temperature during the 48hour recording|By using quadratic equations, plot a graph which is both visually pleasing and practical in the way that the client can see he relation between the outside and inside temperature and humidity|30 min| Dec 11|B|
 |20|Work on the development part in criteria C related to the criteria number 1|Have a visual represntation  with an explanation of the data which fulfills the criteria 1 stated by the client|20 min|Dec 11|C|
-|21|Code the program that plots graph predicting the weather and humidity of the room during subsequent 12 hours|Have a program that will create a graph that clearly indicates predicted numbers for the following 12 hours using the formula and CT that is given in criteria C #6 criteria|40min|Dec 11|B|
+|21|Code the program that plots graph predicting the temperature of the room during subsequent 12 hours|Have a program that will create a graph that clearly indicates predicted numbers for the temperature during subsequent 12 hours after 48hour recording period using the formula and CT that is given in criteria C #6 criteria|40min|Dec 11|B|
 |22|Work on the development part in criteria C related to the criteria number 6| Have clear visual represntation with an explanation and CT behind the prediction of the data in the subsequent 12 hours|30 min|Dec 11|C|
-
+|23|Code the program that plots graph predicting t humidity of the room during subsequent 12 hours|Have a program that will create a graph that clearly indicates predicted numbers for the humidity during subsequent 12 hours after 48hour recording period using the formula and CT that is given in criteria C #6 criteria|20min|Dec 11|B|
 
 ## Flow Diagrams
 
