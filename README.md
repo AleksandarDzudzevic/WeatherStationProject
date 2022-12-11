@@ -99,7 +99,7 @@ Fig 4. In this flow diagram above, it shows the function that allows the user to
 
 ![](flowchart3.jpg)
 
-Fig 5. In this flow diagram above, it shows the function that finds the range of the sensor_ids that were used while collecting temperature and humidity data. It is used to retrieve find the correct sensors on the remote server that were collected during the 48 hours. 
+Fig 5. In this flow diagram above, it shows the function that extracts the data from the sensors with an id within the appropriate range. The range of the sensor_ids that were used while collecting temperature and humidity data during the 48 hour procedure of data collecting inside the room. By using this function only the relavant data during that time will be used and later on presented, preventing any mistakes in the data corelation between the readings inside and outside the room.
 
 # Criteria C: Development
 
