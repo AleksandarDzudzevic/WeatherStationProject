@@ -99,21 +99,31 @@ Fig 4. In this flow diagram above, it shows the function that allows the user to
 
 ![](flowchart3.jpg)
 
-Fig 5. In this flow diagram above, it shows the function that extracts the data from the sensors with an id within the appropriate range. The range of the sensor_ids that were used while collecting temperature and humidity data during the 48 hour procedure of data collecting inside the room. By using this function only the relavant data during that time will be used and later on presented, preventing any mistakes in the data corelation between the readings inside and outside the room. In order to accomplish this, a for loop and if statement is used to run through and check all sensor IDs.
+Fig 5. In this flow diagram above, it shows the function that extracts the data from the sensors with an id within the appropriate range. The range of the sensor_ids that were used while collecting temperature and humidity data during the 48 hour procedure of data collecting inside the room. By using this function only the relavant data during that time will be used and later on presented, preventing any mistakes in the data corelation between the readings inside and outside the room.
 
 # Criteria C: Development
 
 ## List of techniques used
-1. Using functions
-2. For/while loops
-3. Defining and using functions 
-4. PIN connection validation
-5. File reading
-6. Writing in a csv file
-7. Loging to the Api servers by creating an account and using an access token
-8. Sending data to Api servers
-9. Reading data from the Api server
-10. Plotting graphs by using mathplot.lib and using the aquired data (+ getting quadratic formula)
+Using functions
+
+For/while loops
+
+Defining and using functions 
+
+PIN connection validation
+
+File reading
+
+Writing in a csv file
+
+Loging to the Api servers by creating an account and using an access token
+
+Sending data to Api servers
+
+Reading data from the Api server
+
+Plotting graphs by using mathplot.lib and using the aquired data (+ getting quadratic formula)
+
 
 ## Development
 
@@ -139,6 +149,7 @@ Fig 5. In this flow diagram above, it shows the function that extracts the data 
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/rasberrypipic.jpg)
 #### Picture 2.2 shows the location inside the room where the data gathering took place.
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/locationsrasberrypi.jpg)
+#### Code 2.1 shows the part of the program that was used to monitor if the sensors are working during the 48hour period.
 ```.py
 access_token=token()
 
@@ -154,8 +165,12 @@ for i in range(4):
  
 *Screenshot of for sensors used,picture of the model, picture of the rasberry pi and where it was moved during recordings
 
-### 3 The solution provides a mathematical modelling for the Humidity and Temperature levels for each Local and Remote locations. (both lineal and non-lineal model)
-
+### 3 The client requested that the solution provides a mathematical modelling for the Humidity and Temperature levels for each Local and Remote locations. (both lineal and non-lineal model)
+> We fulfilled this request for the following: comparison of the humidity and temperature levels inside and outside the student room (Picture 3.1), prediction of humidity level during the subsequent 12 hour period after the recordings took place. This is shown in the Picture 3.2. We have decided to use mathematical modelling when providing the visual representation for these examples due to the advantage of having data clearly separated and the relations between outside and inside clearly visible and easy to understand. For the humidity prediction we used this because unlike the temperature prediction, humidity varied a lot more with a bigger marginal error so the quadratic equation allowed us to present the expected trend of the humidity during this time periof which was the main goal of that graph. With this criteria number 3 was fulfilled.
+#### Picture 3.1 shows the relation between humidity and temperature inside the room and outside using quadratic formlua
+![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/comparison_graphs_outside_inside.png)
+#### Picture 3.2 shows the prediction of the humidity in the subsequent 12 hours after the measuring took place.
+![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/humidity_prediciton_fot_next12h.png)
 *Quadratic function graph for both remote and local
 
 ### 4 The solution provides a comparative analysis for the Humidity and Temperature levels for each Local and Remote locations including mean, standad deviation, minimum, maximum, and median.
@@ -204,10 +219,11 @@ print(f"It worked {datetime.now()} \n")
 
 
 ### 6 The client wanted a prediction the subsequent 12 hours for both temperature and humidity.
-> We made a prediction  for the temperature and humidity for the next 12 hours which is shown in the graphs bellow, using the data from 24th to 36th hour of recording is most aplicable for the prediction, with a 4.5% margin error which was calculated by comparing the predicted weather outside from these time periods. We used plt.fillinbetween becuase it was the best way to represnt the margin error and allow the client to visually understand what range of temperature to expect for the following 12 hours. With this criteria 6 was fulfilled.
-
+> We made a prediction  for the temperature and humidity for the next 12 hours which is shown in the graphs bellow (pictures 6.1 & 6.2), using the data from 24th to 36th hour of recording is most aplicable for the prediction, with a 4.5% margin error which was calculated by comparing the predicted temperature outside from these time periods and a +1.5% or 1.5% humidity range for the margin error for humidity prediction. We used plt.fillinbetween and plt.errorbar becuase it was the best way to represnt the margin error and allow the client to visually understand what range of temperature to expect for the following 12 hours. With this criteria 6 was fulfilled.
+#### Picture 6.1 shows the prediction of the temperature in the room for the subsequent 12 hours after the measuring took place.
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/temperature_prediction_for_next_12h.png)
-
+#### Picture 6.2 shows the prediction of the humidity in the room for the subsequent 12 hours after the measuring took place with the apropriate margin error.
+![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/humidity_prediciton_fot_next12h.png)
 *Will use the same part of the day from the second 24h period because it is more relatable and use the diff in the early afternoon readings as a prediction for the error bar
 
 ### 7 A poster summarizing the visual representations, model and analysis is created and communicated. 
