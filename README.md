@@ -99,31 +99,21 @@ Fig 4. In this flow diagram above, it shows the function that allows the user to
 
 ![](flowchart3.jpg)
 
-Fig 5. In this flow diagram above, it shows the function that extracts the data from the sensors with an id within the appropriate range. The range of the sensor_ids that were used while collecting temperature and humidity data during the 48 hour procedure of data collecting inside the room. By using this function only the relavant data during that time will be used and later on presented, preventing any mistakes in the data corelation between the readings inside and outside the room.
+Fig 5. In this flow diagram above, it shows the function that extracts the data from the sensors with an id within the appropriate range. The range of the sensor_ids that were used while collecting temperature and humidity data during the 48 hour procedure of data collecting inside the room. By using this function only the relavant data during that time will be used and later on presented, preventing any mistakes in the data corelation between the readings inside and outside the room. In order to accomplish this, a for loop and if statement is used to run through and check all sensor IDs.
 
 # Criteria C: Development
 
 ## List of techniques used
-Using functions
-
-For/while loops
-
-Defining and using functions 
-
-PIN connection validation
-
-File reading
-
-Writing in a csv file
-
-Loging to the Api servers by creating an account and using an access token
-
-Sending data to Api servers
-
-Reading data from the Api server
-
-Plotting graphs by using mathplot.lib and using the aquired data (+ getting quadratic formula)
-
+1. Using functions
+2. For/while loops
+3. Defining and using functions 
+4. PIN connection validation
+5. File reading
+6. Writing in a csv file
+7. Loging to the Api servers by creating an account and using an access token
+8. Sending data to Api servers
+9. Reading data from the Api server
+10. Plotting graphs by using mathplot.lib and using the aquired data (+ getting quadratic formula)
 
 ## Development
 
