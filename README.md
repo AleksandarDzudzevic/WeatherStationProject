@@ -135,11 +135,13 @@ print(f"It worked {datetime.now()} \n")
 # Criteria C: Development
 
 ## List of techniques used
-Using functions
+Functions
 
-For/while loops
+Lists
 
-Defining and using functions 
+For loops
+
+While loops
 
 PIN connection validation
 
@@ -147,13 +149,13 @@ File reading
 
 Writing in a csv file
 
-Loging to the Api servers by creating an account and using an access token
+Loging to the Api servers 
 
 Sending data to Api servers
 
 Reading data from the Api server
 
-Plotting graphs by using mathplot.lib and using the aquired data (+ getting quadratic formula)
+Plotting graphs
 
 
 ## Development
