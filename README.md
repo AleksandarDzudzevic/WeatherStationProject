@@ -483,7 +483,7 @@ Figure 6.2 shows the prediction of the humidity in the room for the subsequent 1
 
 ### 7. A poster summarizing the visual representations, model and analysis is created and communicated. 
 
-![](![Background](https://user-images.githubusercontent.com/111751273/207022949-6cf0f452-47d1-4b6a-9f32-900767dc6813.png)
+(![Background](https://user-images.githubusercontent.com/111751273/207022949-6cf0f452-47d1-4b6a-9f32-900767dc6813.png)
 
 
 # Criteria D: Functionality
