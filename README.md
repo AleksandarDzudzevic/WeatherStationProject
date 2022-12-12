@@ -89,7 +89,7 @@ A Remote desktop
 |24| Create a poster describing the process of the project and experiment. | Have a clear and understandable visual representation of the experiment conducted. | 1 hour | Dec 11 | D |
 |25| Explain where CT techniques (decomposing,pattern recognition, algorithms, absraction) were used and defend why we used them in the that part of the code| Updated version of Criteria C development part will have reasonings behind all the actions taken for each criteria stated by the client| 40 min| Dec 11|C
 |26| Create the program that calculates maximum minimum and mean value for each set of recordings and graphs mean temp graph with a standard deviation as the difference between highest and the lowest recorded temperature during that period| Have a useful visual represntation of the data mentioned and use it in the poster| 25 min| Dec 12 |B|
-|Work on the development part in criteria C related to the criteria number 4| Show and defend the logic behind using mathematical tools for the comparison of the humidity and temperature data inside and outside| 20 min| Dec 12|C|
+|27|Work on the development part in criteria C related to the criteria number 4| Show and defend the logic behind using mathematical tools for the comparison of the humidity and temperature data inside and outside| 20 min| Dec 12|C|
 ## Flow Diagrams
 
 ![](unit2flowchart1.jpg)
