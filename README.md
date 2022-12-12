@@ -54,7 +54,7 @@ A Remote desktop
 |-----------|--------|-----------|------------------|
 | Functional: Integrational testing | User Sign Up  | 1. Enter the desired username and password 2. Try to sign up with the same username | The first time the username and password is set, the program should not return any error message and exit as normal. When the same username is used to attempt and create a new account, the program will return and error message, as the username is already taken. |
 | Functional: Integrational testing | Login: Access Token | 1. Use the function (token). 2. Have the set credentials (username and password) in the function. | If the username and passwords match with the credentials from the remote server, the code will return an access token, which will allow the user to access the remote server that includes all the collected data (readings). If the username and password entered does not match any of the existing crendentials, the access token will not be granted to the user. |
-| Functional: Integrational testing | Sensor connectivity | 1. Connect all sensors to breadboard 2. Run get_readings function | The program should return readings for all sensors connected, and if there is an error within any of the sensors, an error message should appear. |
+| Functional: Integrational testing | Sensor connectivity | 1. Connect all sensors to breadboard 2. Run get_readings function which collects humidity and temperature levels from all 4 sensors  | The program should return readings for all sensors connected, and if there is an error within any of the sensors, an error message should appear. |
 | Non-functional: Load testing | Testing if the program has little lag or glitches due to the amount of time the program is ran for (48 hours). Additionally, see if continously added data (readings) influence the proccessing of the program. | 1. Run the program. 2. Continously check up on the code, every 2-3 hours. | All data is up to date, and the program is still continously running and recoridng data wihtout any glitches or lag. |
 | Non-functional: Response time | Testing if the sensor responds quickly to the running program and see how long it takes for the sensor to register and print out the current temperature and humidity| 1. Run the basic program that aims to print the current temperature and humidity the sensor collects.| The program returns the swiftly returns the current temperature and humidity the sensor collects without any lag or delay. |
 | Non-functional：Code review | Reviewing if the code has adequate comments, function name, and variable name.As this reviews the quality of the code, there are no inputs. | The procedure included a review of the code from a external developer who is not familiar with techniques used in it. The developer then gave feedback on which parts are not understandable and names of which variables are not logical when looking at the purpose of the variable.|The code will include comments explaining what is occuring within the code. Furthermore, the names of variables are simple and it is easy to understand what is their usage in the program |
@@ -103,31 +103,20 @@ Fig 4. In this flow diagram above, it shows the function that allows the user to
 Fig 5. In this flow diagram above, it shows the function that extracts the data from the sensors with an id within the appropriate range. The range of the sensor_ids that were used while collecting temperature and humidity data during the 48 hour procedure of data collecting inside the room. By using this function only the relavant data during that time will be used and later on presented, preventing any mistakes in the data corelation between the readings inside and outside the room.
 
 ## Data storing
-#### Data consisting of the humidity and temperature levels during the 48-hour period when the recording was done was both recorded in a csv file and posted on the server. The example of the readings stored in a .csv file is given in the figure below.
+#### Data consisting of the humidity and temperature levels during the 48-hour period when the recording was done was both recorded in a csv file and posted on the server. The example of the readings stored in a .csv file (Fig Ds.1) and on the server (Fig Ds.2) is given in the figures below.
+#### Fig Ds.1
 ![We used a .csv file to store 48hours worth of data measured every 5 min. Each row has a time when data was recorded, tempratures and humidity from all 4 sensors, median temperature and humidity](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/crietria-c-proof5.1.png)
-
-#### Code used for gathering data (explained later in the criteria C development)
+#### Fig Ds.2
+![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/Recordings_from_the_server_example.png)
+#### Program part used for 1) sending the data and uploading it to the server and 2) collecting recordings with get_readings(Function showed later in development part) and putting it into the .csv file
 ```.py
-def get_readings(): #Intentionally not done in a for loop because this way we could see if there is an error with data sending we knowwhich sensor is the problem
-    humidity1, temperature1 = Adafruit_DHT.read_retry(11, sensor_1_pin)
-    senddata(temperature1, sensor1tempid)
-    senddata(humidity1, sensor1humidityid)
-    humidity2, temperature2 = Adafruit_DHT.read_retry(11, sensor_2_pin)
-    senddata(temperature2, sensor2tempid)
-    senddata(humidity2, sensor2humidityid)
-    humidity3, temperature3 = Adafruit_DHT.read_retry(11, sensor_3_pin)
-    senddata(temperature3, sensor3tempid)
-    senddata(humidity3, sensor3humidityid)
-    humidity4, temperature4 = Adafruit_DHT.read_retry(11, sensor_4_pin)
-    senddata(temperature4, sensor4tempid)
-    senddata(humidity4, sensor4humidityid)
+def senddata(value, sensor_id):
+    new_record ={"datetime":str(datetime.isoformat(datetime.now())),"sensor_id":sensor_id, "value":value}
+    r = requests.post('http://192.168.6.142/reading/new', json=new_record, headers=auth)
+```
 
-    average_temp = (temperature1 + temperature2 + temperature3 + temperature4) / 4
-    average_humidity = (humidity1 + humidity2 + humidity3 + humidity4) / 4
-    median_temp = statistics.median([temperature1, temperature2, temperature3, temperature4])
-    median_humidity = statistics.median([humidity1, humidity2, humidity3, humidity4])
-    reading =(f"{temperature1},{humidity1},{temperature2},{humidity2},{temperature3},{humidity3},{temperature4},{humidity4},{datetime.isoformat(datetime.now())},{median_temp},{median_humidity}")
-    return (reading)
+
+```.py
 
 reading=get_readings()
 with open("/home/dev/readings.csv","a") as f:
