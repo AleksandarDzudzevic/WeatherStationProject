@@ -92,15 +92,15 @@ A Remote desktop
 |27|Work on the development part in criteria C related to the criteria number 4| Show and defend the logic behind using mathematical tools for the comparison of the humidity and temperature data inside and outside| 20 min| Dec 12|C|
 ## Flow Diagrams
 
-![](unit2flowchart1.jpg)
+![](flowchart1.jpg)
 
 Fig 3. In this flow diagram above, it shows the function that checks if the sensor is connected and working. It checks if each sensor is collecting data, and if it does, it will print a message that tells the user that sensor is connected. However, if the sensor is not connected, it will print an error message displaying that the sensor is not working. It works by using a for loop and if-statement. The if-statement runs 4 times to check if all 4 sensors are connected.
 
-![](unit2flowchart2.jpg)
+![](flowchart2.jpg)
 
 Fig 4. In this flow diagram above, it shows the function that allows the user to gain an access token through the remote server using a username and password. It sends a request to the remote server, and inputs the credentials, and if the account exists and the crendtials are accurate within the database of the server, it returns an access token to the user which will allow them gain access to the data (readings) collected.
 
-![](flowchart3.jpg)
+![](flowchartt3.jpg)
 
 Fig 5. In this flow diagram above, it shows the function that extracts the data from the sensors with an id within the appropriate range. The range of the sensor_ids that were used while collecting temperature and humidity data during the 48 hour procedure of data collecting inside the room. By using this function only the relavant data during that time will be used and later on presented, preventing any mistakes in the data corelation between the readings inside and outside the room.
 
