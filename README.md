@@ -303,10 +303,10 @@ The development of the part of the program that fulfilled this criteria was firs
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/comparison_graphs_outside_inside.png)
 #### Figure 3.2 shows the linear graphing for the prediction of the humidity in the subsequent 12 hours after the measuring took place.
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/humidity_prediciton_fot_next12h.png)
-*Quadratic function graph for both remote and local
-
+#### Figure 3.3 shows the mean temperature with standard deviation graphed using the formula pwr 3
+![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/mean_temp_with_standard_deviation.png)
 ### 4. The solution provides a comparative analysis for the Humidity and Temperature levels for each Local and Remote locations including mean, standad deviation, minimum, maximum, and median.
-
+To fulfill this criteria we wanted to make visual comparison of the humidity and temperature inside and outside that is easy to understand, so we plotted quadratic function of comparison showed in Figure 3.1. We also wanted to show the accurate temperature variation using standard deviation calculated using maximum and minimum measurments from 4 sensors a each recording. We then smoothed data so that client canuse visual data without any problems when analyzing it.
 *Screenshots of the graphs
 
 ### 5. The client wanted the Local samples stored in a .csv file and posted to the remote server. We did this by uploading recordings to the server using the following code
