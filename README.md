@@ -127,34 +127,31 @@ print(f"It worked {datetime.now()} \n")
 ```
 # Criteria C: Development
 
-## List of techniques used
-- Functions
+## Techniques Used
+1. Functions
 
-- Lists
+2. Lists
 
-- For loops
+3. For loops
 
-- While loops
+4. While loops
 
-- PIN connection validation
+5. PIN connection validation
 
-- File reading
+6. File reading
 
-- Writing in a csv file
+7. Writing in a csv file
 
-- Loging to the Api servers 
+8. Loging to the Api servers 
 
-- Sending data to Api servers
+9. Sending data to Api servers
 
-- Reading data from the Api server
+10. Reading data from the Api server
 
-- Plotting graphs
-
-
-## Development
+11. Plotting graph
 
 
-### 1. The client wants The solution that provides a visual representation of the Humidity and Temperature values inside a dormitory (Local) and outside the house (Remote) for a period of minimum 48 hours.
+## 1. The client wants The solution that provides a visual representation of the Humidity and Temperature values inside a dormitory (Local) and outside the house (Remote) for a period of minimum 48 hours.
 > By using matplot.lib we have visually presented mean temperature and humidity inside the room during the 48 hours as well as readings from all the sensors individually. For the mean readings of temperature and humidity inside(fig 1.1 and 1.2) we used plt.bar and plt.stem so that the data will be presented in the way which makes it easier to visually understand the change in the temperature and humidity througout the day.
 
 >   Outside readings will be visually compared with the mean of the readings inside the dorm. We presented the data through using  quadratic equation, as the lines that way are much more visible and the client can clearly see the behaviour of the data changing due to the time of the day. This way we also allowed the client to easily see how the outside weather affects the humidity and temperature inside the room. With all these features we have presented a reliable solution to the request stated in criteria number 1 of the client.
@@ -162,7 +159,7 @@ print(f"It worked {datetime.now()} \n")
 We fulfilled criteria 1 by first using Decomposing part of CT and divided graph plotting into separate parts of the code. The Code 1.1  and 1.2 plots the representation of humidity and temperature readings during the 48h period. They consists of pattern recognition for calculating and storing mean value of the data from all 4 sensors,for smoothing data making the graphs visibility better, and for plotting of separate graphs for sensors individualy.
 
 The outside data was presented using the comparison graph (Figure 1.4) The code for this (Code 1.3) was developed by first decomposing data into humidity and temperature segment. To get the data we developed an algorithm (Code 1.4) which checks if the id of the reading is in the certain range which represents the time period when 48hours of recording happend.
-#### Code 1.1 Shows code used for plotting graphs for humidity data recorded during 48 hours.
+
 ```.py
 # Graph for humidity
 sensor_data = []
@@ -192,8 +189,9 @@ for i in range(len(sensors_humidity)):
     plt.plot(x2,sensor_data[i],color = my_colors[i])
     plt.title(f"Sensor #{sensors_humidity[i]}")
     plt.ylim([15,55])# shows Y axis from _ to _ (helps with visibility)
- ```
-#### Code 1.2 Shows code used for plotting graphs for temperature data recorded during 48 hours.
+```
+Code 1.1 Shows code used for plotting graphs for humidity data recorded during 48 hours.
+ 
 ```.py
 fig = plt.figure(figsize=(10,8))
 # from matplot.lib.gridspec import GridSpec
@@ -213,7 +211,9 @@ for i in range(len(sensors_temp)):
     plt.ylim([10,28]) # shows Y axis from _ to _ (helps with visibility)
 plt .show()
 ```
-#### Code 1.3 Shows the part of the program used to plot comparison graphs, allowing client to visually understand the relationship between the outside and inside data
+
+Code 1.2 Shows code used for plotting graphs for temperature data recorded during 48 hours.
+
 ```.py
 plt.subplot(2,1,1)
 x3,mean_temp_out=smoothing(temperature_readings_out)
@@ -250,7 +250,9 @@ plt.xlabel("Hours")
 plt.ylabel("Humidity (%)")
 plt.show()
 ```
-#### Code 1.4 Shows the algorithm used to only acquire the data apropriate for the needed time period.
+
+Code 1.3 Shows the part of the program used to plot comparison graphs, allowing client to visually understand the relationship between the outside and inside data
+
 ```.py def get_sensor(readings: list, id: int) -> list:
     T = []
     for r in readings:
@@ -259,29 +261,31 @@ plt.show()
             T.append(r['value'])
     return T
   ```
-#### Figure 1.1 shows mean humidity in the dorm and the humidity readings from all sensors individually.
+  
+Code 1.4 Shows the algorithm used to only acquire the data apropriate for the needed time period.
+
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/humidity_all_sensors_mean.png)
-#### Figure 1.2 shows mean temperature in the dorm and the temperature readings from all sensors individually.
+Figure 1.1 shows mean humidity in the dorm and the humidity readings from all sensors individually.
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/temp_allsensors_mean.png)
-#### Figure 1.3 shows the humidity and temperature recordings from the outside sensor during the 48 hour recording period
+Figure 1.2 shows mean temperature in the dorm and the temperature readings from all sensors individually.
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/rawoutsidetemphum.png)
-#### Figure 1.4 shows the relation between humidity and temperature inside the room and outside for the first 12 hours
-![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/outside_inside_compared.png)
+Figure 1.3 shows the humidity and temperature recordings from the outside sensor during the 48 hour recording period
+![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/comparison_graphs_outside_inside.png)
+Figure 1.4 shows the relation between humidity and temperature inside the room and outside 
 
  
 
-### 2. The client requested that the local variables will be measured using a set of 4 sensors around the dormitory.
+## 2. The client requested that the local variables will be measured using a set of 4 sensors around the dormitory.
 > We used rasberry pi 4 and 4 DHT 11 sensors to collect the data. By collecting it from multiple locations the diversity in data was achieved, allowing better representation of the humidity and temperature in thhe rooms was possible. The locations were changed during the 48 hour period, with location 1 being the main one where the majority of data was recorded. This is because it is distanced further from the window than location 1 but closer than location 3, so the data gives us what is closest to an avarage of the whole room. By doing this we fulfilled client's request for criteria 2.
 > In adition to this, to make sure the data is being emasured every 5 minutes without any mistakes, we implemented a procedure in the code which checks if all the sensors are properly connected and working, allowing us to interven in the shortest period of tim e if neccesery. The code to this is given under the figure 2.2. 
 
 We first developed code that would check if all the sensors are connected and working. Instead of using 4 if statements, we used the pattern recognition part of CT making the for loop that will execute the procedure more eficiently and making the code more visually pleasing.
 
-#### Figure 2.1 shows Rsberry Pi connected to 4 DHT 11 sensors which recorded the data that client requested.
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/rasberrypipic.jpg)
-#### Figure 2.2 shows the location inside the room where the data gathering took place.
+Figure 2.1 shows Rsberry Pi connected to 4 DHT 11 sensors which recorded the data that client requested.
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/locationsrasberrypi.jpg)
-#### Figure 2.1 shows the part of the program that was used to monitor if the sensors are working during the 48hour period.
-#### Code 2.1 
+Figure 2.2 shows the location inside the room where the data gathering took place.
+
 ```.py
 access_token=token()
 
@@ -294,24 +298,26 @@ for i in range(4):
         print(f" Sensor {i+1} is Not Working")
         exit(f"Sensor {i+1} is not working")
    ```
- 
+Code 2.1 shows the part of the program that was used to monitor if the sensors are working during the 48hour period.
+
 *Screenshot of for sensors used,picture of the model, picture of the rasberry pi and where it was moved during recordings
 
-### 3. The client requested that the solution provides a mathematical modelling for the Humidity and Temperature levels for each Local and Remote locations. (both lineal and non-lineal model)
+## 3. The client requested that the solution provides a mathematical modelling for the Humidity and Temperature levels for each Local and Remote locations. (both lineal and non-lineal model)
 > We fulfilled this request for the following: comparison of the humidity and temperature levels inside and outside the student room (Figure 3.1), prediction of humidity level during the subsequent 12 hour period after the recordings took place. This is shown in the Figure 3.2. We have decided to use mathematical modelling when providing the visual representation for these examples due to the advantage of having data clearly separated and the relations between outside and inside clearly visible and easy to understand. For the humidity prediction we used this because unlike the temperature prediction, humidity varied a lot more with a bigger marginal error so the quadratic equation allowed us to present the expected trend of the humidity during this time period which was the main goal of that graph. With this criteria number 3 was fulfilled.
 
 The development of the part of the program that fulfilled this criteria was first decomposed into 2 parts. Showing relations using mathematical modeling, and showing predictions using mathematical modeling. The code for the relations between data (Code 1.3) was developed by decomposing it into two subplots showing the relation between humidities and temperatures separately. Quadratic formula was aquired using np.polyfit and then put into an algorithm which would collect it into the list allowing the cretion of non-linear graphs.
 
-#### Figure 3.1 shows the relation between humidity and temperature inside the room and outside using quadratic formlua
-![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/outside_inside_compared.png)
-#### Figure 3.2 shows the linear graphing for the prediction of the humidity in the subsequent 12 hours after the measuring took place.
+![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/comparison_graphs_outside_inside.png)
+Figure 3.1 shows the relation between humidity and temperature inside the room and outside using quadratic formlua
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/humidity_prediciton_fot_next12h.png)
-#### Figure 3.3 shows the mean temperature with standard deviation graphed using the formula pwr 3
+Figure 3.2 shows the linear graphing for the prediction of the humidity in the subsequent 12 hours after the measuring took place.
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/mean_temp_with_standard_deviation.png)
-### 4. The solution provides a comparative analysis for the Humidity and Temperature levels for each Local and Remote locations including mean, standad deviation, minimum, maximum, and median.
+Figure 3.3 shows the mean temperature with standard deviation graphed using the formula pwr 3
+
+## 4. The solution provides a comparative analysis for the Humidity and Temperature levels for each Local and Remote locations including mean, standard deviation, minimum, maximum, and median.
 To fulfill this criteria we wanted to make visual comparison of the humidity and temperature inside and outside that is easy to understand, so we plotted quadratic function of comparison showed in Figure 3.1. We also wanted to show the accurate temperature variation using standard deviation calculated using maximum and minimum measurments from 4 sensors a each recording. We then smoothed data so that client can use visual data without any problems when analyzing it. In the Figure 3.3 we used mean temperature, difference between maximum and minimum temperture and plotted a graph that would show the range of the temperature based on the differnces in the separate recordings of sensors individualy. We recognized a pattern when extacting data so we made an algorithm Code 4.1 which first used a for loop in order to put all the data where it is supposed to be. Then we used our mathematical moduling skills to graph a mean temperature graph using np.polyfit for pwr 3 which gave us a clear line which is not only visually pleasing but is also easy to use for client when they wanted to understand the trend in temperature change. To give them the most realsistic presentation of the data we included the standard deviation calculated by the difference in temperature recordings from the sensors seperatelly.
 
-In adition to this we did a comparative analysis using the data of what is the proportion of mean temperature recordings that were in rnage of the optimal room temperature. Figure 4.1 and Code 4.2
+In adition to this we did a comparative analysis using the data of what is the proportion of mean temperature recordings that were in range of the optimal room temperature. Figure 4.1 and Code 4.2
 #### Code 4.1
 ```.py
 for i in range(576):
