@@ -112,11 +112,11 @@ Data consisting of the humidity and temperature levels during the 48-hour period
 #### Fig Ds.2 Showing data uploaded on to the server. Specific data we used was aquired by developing a program which checks sensor id and id of the recording and only requests specific data for the specific time period. 
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/Recordings_from_the_server_example.png)
 
+```.py
 def senddata(value, sensor_id):
     new_record ={"datetime":str(datetime.isoformat(datetime.now())),"sensor_id":sensor_id, "value":value}
     r = requests.post('http://192.168.6.142/reading/new', json=new_record, headers=auth)
 ```
-
 
 ```.py
 
