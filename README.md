@@ -105,12 +105,11 @@ Fig 4. In this flow diagram above, it shows the function that allows the user to
 Fig 5. In this flow diagram above, it shows the function that extracts the data from the sensors with an id within the appropriate range. The range of the sensor_ids that were used while collecting temperature and humidity data during the 48 hour procedure of data collecting inside the room. By using this function only the relavant data during that time will be used and later on presented, preventing any mistakes in the data corelation between the readings inside and outside the room.
 
 ## Data storing
-#### Data consisting of the humidity and temperature levels during the 48-hour period when the recording was done was both recorded in a csv file and posted on the server. The example of the readings stored in a .csv file (Fig Ds.1) and on the server (Fig Ds.2) is given in the figures below.
-#### Fig Ds.1 Shows the .csv file where we stored data
+Data consisting of the humidity and temperature levels during the 48-hour period when the recording was done was both recorded in a csv file and posted on the server. The example of the readings stored in a .csv file (Fig Ds.1) and on the server (Fig Ds.2) is given in the figures below.
 ![We used a .csv file to store 48hours worth of data measured every 5 min. Each row has a time when data was recorded, tempratures and humidity from all 4 sensors, median temperature and humidity](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/crietria-c-proof5.1.png)
-#### Fig Ds.2 Showing data uploaded on to the server. Specific data we used was aquired by developing a program which checks sensor id and id of the recording and only requests specific data for the specific time period. 
+Fig Ds.1 Shows the .csv file where we stored data
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/Recordings_from_the_server_example.png)
-#### Program part used for 1) sending the data and uploading it to the server and 2) collecting recordings with get_readings(Function showed later in development part) and putting it into the .csv file
+Fig Ds.2 Showing data uploaded on to the server. Specific data we used was aquired by developing a program which checks sensor id and id of the recording and only requests specific data for the specific time period. 
 ```.py
 def senddata(value, sensor_id):
     new_record ={"datetime":str(datetime.isoformat(datetime.now())),"sensor_id":sensor_id, "value":value}
@@ -125,6 +124,9 @@ with open("/home/dev/readings.csv","a") as f:
     f.write(f"{reading} \n")
 print(f"It worked {datetime.now()} \n")
 ```
+Program part used for 1) sending the data and uploading it to the server and 2) collecting recordings with get_readings(Function showed later in development part) and putting it into the .csv file.
+
+
 # Criteria C: Development
 
 ## Techniques Used
@@ -318,7 +320,7 @@ Figure 3.3 shows the mean temperature with standard deviation graphed using the 
 To fulfill this criteria we wanted to make visual comparison of the humidity and temperature inside and outside that is easy to understand, so we plotted quadratic function of comparison showed in Figure 3.1. We also wanted to show the accurate temperature variation using standard deviation calculated using maximum and minimum measurments from 4 sensors a each recording. We then smoothed data so that client can use visual data without any problems when analyzing it. In the Figure 3.3 we used mean temperature, difference between maximum and minimum temperture and plotted a graph that would show the range of the temperature based on the differnces in the separate recordings of sensors individualy. We recognized a pattern when extacting data so we made an algorithm Code 4.1 which first used a for loop in order to put all the data where it is supposed to be. Then we used our mathematical moduling skills to graph a mean temperature graph using np.polyfit for pwr 3 which gave us a clear line which is not only visually pleasing but is also easy to use for client when they wanted to understand the trend in temperature change. To give them the most realsistic presentation of the data we included the standard deviation calculated by the difference in temperature recordings from the sensors seperatelly.
 
 In adition to this we did a comparative analysis using the data of what is the proportion of mean temperature recordings that were in range of the optimal room temperature. Figure 4.1 and Code 4.2
-#### Code 4.1
+
 ```.py
 for i in range(576):
     x.append(i/12)
@@ -348,7 +350,8 @@ plt.ylabel("Temperature (Celsius)")
 plt.show()
 
 ```
-#### Code 4.2
+Code 4.1
+
 ```.py
     if (avarage_temp[i]>=20 and avarage_temp[i]<=22 ):
         counter_for_good_temp+=1
@@ -364,8 +367,10 @@ plt.legend()
 plt.text(x=-0.6,y=0.8,s=percentage)
 plt.show()
 ```
-#### Figure 4.1 shows the percentage of the temperature recordings during the 48 hour period that were in the optimal temprature range for a bedroom
+Code 4.2
+
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/pie_chart_final.png)
+Figure 4.1 shows the percentage of the temperature recordings during the 48 hour period that were in the optimal temprature range for a bedroom
 
 ### 5. The client wanted the Local samples stored in a .csv file and posted to the remote server. We did this by uploading recordings to the server using the following code
 
@@ -375,17 +380,16 @@ The procedure behind this is that we needed to decompose problem into the follow
 1) Sending data to the server (Code 5.1)
 2) Putting the data into a .csv file (Code 5.2)
 
-#### Code 5.1 Abstracting part of CT- defining a function used to post the recordings.
 
 ```.py
 def senddata(value, sensor_id):
     new_record ={"datetime":str(datetime.isoformat(datetime.now())),"sensor_id":sensor_id, "value":value}
     r = requests.post('http://192.168.6.142/reading/new', json=new_record, headers=auth)
 ```
+Code 5.1 Abstracting part of CT- defining a function used to post the recordings.
 
 > The client also wanted us to store the data into a csv file which we did, using the code below. We used get_readings function in the way which allowed us to first send data from all the sensors to the server, and then store the data in the variable which would get returned in the endo of the function allowing us to store it in the .csv file using poen f and f.write features.
 
-#### Code 5.2 Getting the readings from all sensors  and putting them into a .csv file(The recognition of the pattern  was present but it was not done, explained in the commemnt)
 ```.py
 def get_readings(): #Intentionally not done in a for loop because this way we could see if there is an error with data sending we know which sensor is the problem
     humidity1, temperature1 = Adafruit_DHT.read_retry(11, sensor_1_pin)
@@ -413,15 +417,17 @@ with open("/home/dev/readings.csv","a") as f:
     f.write(f"{reading} \n")
 print(f"It worked {datetime.now()} \n")
 ```
-#### Figure 5.1 shows the recorded data stored in the .csv file. The data was measured everyb5 minutes for 48 hours for a totl of 576 data units.
+Code 5.2 Getting the readings from all sensors  and putting them into a .csv file(The recognition of the pattern  was present but it was not done, explained in the commemnt)
+
 ![We used a .csv file to store 48hours worth of data measured every 5 min. Each row has a time when data was recorded, tempratures and humidity from all 4 sensors, median temperature and humidity](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/crietria-c-proof5.1.png)
+Figure 5.1 shows the recorded data stored in the .csv file. The data was measured everyb5 minutes for 48 hours for a totl of 576 data units.
 
 
 ### 6. The client wanted a prediction the subsequent 12 hours for both temperature and humidity.
 > We made a prediction  for the temperature and humidity for the next 12 hours which is shown in the graphs bellow (pictures 6.1 & 6.2), using the data from 24th to 36th hour of recording is most aplicable for the prediction, with a 4.5% margin error which was calculated by comparing the predicted temperature outside from these time periods and a +1.5% or 1.5% humidity range for the margin error for humidity prediction whcih was calculated based on how much data varied throughout recordings. We used plt.fillinbetween and plt.errorbar becuase it was the best way to represnt the margin error and allow the client to visually understand what range of temperature to expect for the following 12 hours. With this criteria 6 was fulfilled.
 
 We developed a program that fulfilled client's criteria by calculating the coefficents of quadratic equations for the graph using np.polyfit, and then an algorithm which stored the data which was then plotted. The margin error was calculating by dividing the difference in data at that time period during the two days.
-#### Code 6.1
+
 ```.py
 # predicting the weather for subseqyent 12 hours
 prediction_temp_12h_higher = []
@@ -441,7 +447,8 @@ plt.xlabel("Hours")
 plt.ylabel("Temp (Celsius)")
 plt.show()
 ```
-#### Code 6.2
+Code 6.1
+
 ```.py
 rediction_hum_12h_higher = []
 prediction_hum_12h_lower = []
@@ -465,12 +472,14 @@ plt.ylabel("Humidity (%)")
 
 plt.show()
 ```
+Code 6.2
 
-#### Figure 6.1 shows the prediction of the temperature in the room for the subsequent 12 hours after the measuring took place.
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/temperature_prediction_for_next_12h.png)
-#### Figure 6.2 shows the prediction of the humidity in the room for the subsequent 12 hours after the measuring took place with the apropriate margin error.
+Figure 6.1 shows the prediction of the temperature in the room for the subsequent 12 hours after the measuring took place.
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/humidity_prediciton_fot_next12h.png)
 *Will use the same part of the day from the second 24h period because it is more relatable and use the diff in the early afternoon readings as a prediction for the error bar
+Figure 6.2 shows the prediction of the humidity in the room for the subsequent 12 hours after the measuring took place with the apropriate margin error.
+
 
 ### 7. A poster summarizing the visual representations, model and analysis is created and communicated. 
 
