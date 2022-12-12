@@ -265,7 +265,7 @@ plt.show()
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/temp_allsensors_mean.png)
 #### Figure 1.3 shows the humidity and temperature recordings from the outside sensor during the 48 hour recording period
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/rawoutsidetemphum.png)
-#### Figure 1.4 shows the relation between humidity and temperature inside the room and outside for the frist 12 hours
+#### Figure 1.4 shows the relation between humidity and temperature inside the room and outside for the first 12 hours
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/outside_inside_compared.png)
 
  
