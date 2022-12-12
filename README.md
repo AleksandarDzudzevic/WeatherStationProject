@@ -265,8 +265,8 @@ plt.show()
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/temp_allsensors_mean.png)
 #### Figure 1.3 shows the humidity and temperature recordings from the outside sensor during the 48 hour recording period
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/rawoutsidetemphum.png)
-#### Figure 1.4 shows the relation between humidity and temperature inside the room and outside 
-![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/comparison_graphs_outside_inside.png)
+#### Figure 1.4 shows the relation between humidity and temperature inside the room and outside for the frist 12 hours
+![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/outside_inside_compared.png)
 
  
 
@@ -303,7 +303,7 @@ for i in range(4):
 The development of the part of the program that fulfilled this criteria was first decomposed into 2 parts. Showing relations using mathematical modeling, and showing predictions using mathematical modeling. The code for the relations between data (Code 1.3) was developed by decomposing it into two subplots showing the relation between humidities and temperatures separately. Quadratic formula was aquired using np.polyfit and then put into an algorithm which would collect it into the list allowing the cretion of non-linear graphs.
 
 #### Figure 3.1 shows the relation between humidity and temperature inside the room and outside using quadratic formlua
-![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/comparison_graphs_outside_inside.png)
+![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/outside_inside_compared.png)
 #### Figure 3.2 shows the linear graphing for the prediction of the humidity in the subsequent 12 hours after the measuring took place.
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/humidity_prediciton_fot_next12h.png)
 #### Figure 3.3 shows the mean temperature with standard deviation graphed using the formula pwr 3
