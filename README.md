@@ -104,9 +104,9 @@ Fig 5. In this flow diagram above, it shows the function that extracts the data 
 
 ## Data storing
 #### Data consisting of the humidity and temperature levels during the 48-hour period when the recording was done was both recorded in a csv file and posted on the server. The example of the readings stored in a .csv file (Fig Ds.1) and on the server (Fig Ds.2) is given in the figures below.
-#### Fig Ds.1
+#### Fig Ds.1 Shows the .csv file where we stored data
 ![We used a .csv file to store 48hours worth of data measured every 5 min. Each row has a time when data was recorded, tempratures and humidity from all 4 sensors, median temperature and humidity](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/crietria-c-proof5.1.png)
-#### Fig Ds.2
+#### Fig Ds.2 Showing data uploaded on to the server. Specific data we used was aquired by developing a program which checks sensor id and id of the recording and only requests specific data for the specific time period. 
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/Recordings_from_the_server_example.png)
 #### Program part used for 1) sending the data and uploading it to the server and 2) collecting recordings with get_readings(Function showed later in development part) and putting it into the .csv file
 ```.py
