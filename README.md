@@ -86,9 +86,10 @@ A Remote desktop
 |21|Code the program that plots graph predicting the temperature of the room during subsequent 12 hours|Have a program that will create a graph that clearly indicates predicted numbers for the temperature during subsequent 12 hours after 48hour recording period using the formula and CT that is given in criteria C #6 criteria|40 minutes|Dec 11|B|
 |22|Work on the development part in criteria C related to the criteria number 6| Have clear visual represntation with an explanation and CT behind the prediction of the data in the subsequent 12 hours|30 minutes|Dec 11|C|
 |23|Code the program that plots graph predicting t humidity of the room during subsequent 12 hours|Have a program that will create a graph that clearly indicates predicted numbers for the humidity during subsequent 12 hours after 48hour recording period using the formula and CT that is given in criteria C #6 criteria|20 minutes|Dec 11|B|
-|24| Create a poster describing the process of the project and experiment. | Have a clear and understandable visual representation of the experiment conducted. | 1 hour | Dec 11 | C |
+|24| Create a poster describing the process of the project and experiment. | Have a clear and understandable visual representation of the experiment conducted. | 1 hour | Dec 11 | D |
 |25| Explain where CT techniques (decomposing,pattern recognition, algorithms, absraction) were used and defend why we used them in the that part of the code| Updated version of Criteria C development part will have reasonings behind all the actions taken for each criteria stated by the client| 40 min| Dec 11|C
-
+|26| Create the program that calculates maximum minimum and mean value for each set of recordings and graphs mean temp graph with a standard deviation as the difference between highest and the lowest recorded temperature during that period| Have a useful visual represntation of the data mentioned and use it in the poster| 25 min| Dec 12 |B|
+|Work on the development part in criteria C related to the criteria number 4| Show and defend the logic behind using mathematical tools for the comparison of the humidity and temperature data inside and outside| 20 min| Dec 12|C|
 ## Flow Diagrams
 
 ![](unit2flowchart1.jpg)
