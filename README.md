@@ -345,6 +345,7 @@ plt.show()
     if (avarage_temp[i]>=20 and avarage_temp[i]<=22 ):
         counter_for_good_temp+=1
 temperature_good_bad=[counter_for_good_temp,576]
+percentage= str(int(counter_for_good_temp/576 *100))+"%"
 mylabels=["Recorded optimal temperature in the room","Recorded unoptimal temperature in the rooms"]
 mycolors=["#109010","#901010"]
 myexplode=[0.3,0]
@@ -352,10 +353,12 @@ myexplode=[0.3,0]
 plt.pie(temperature_good_bad,labels = mylabels,colors=mycolors,explode=myexplode,shadow=True,startangle = 90)
 plt.title(" The chart represents what part of the mean temperature readings were in range of the optimal room temperature  (20-22 celsius)")
 plt.legend()
+plt.text(x=-0.6,y=0.8,s=percentage)
 plt.show()
 ```
-#### Figure 4.1
-![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/pie_chart_optimaltemp.png)
+#### Figure 4.1 shows the percentage of the temperature recordings during the 48 hour period that were in the optimal temprature range for a bedroom
+![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/pie_chart_final.png)
+
 ### 5. The client wanted the Local samples stored in a .csv file and posted to the remote server. We did this by uploading recordings to the server using the following code
 
 > We used the following function to send the data to the server y using /reading/new endpoint on the server API. It allowed us to create a record for a sensor in the server. The user logged in is the owner of the record. 
