@@ -307,8 +307,37 @@ The development of the part of the program that fulfilled this criteria was firs
 #### Figure 3.3 shows the mean temperature with standard deviation graphed using the formula pwr 3
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/mean_temp_with_standard_deviation.png)
 ### 4. The solution provides a comparative analysis for the Humidity and Temperature levels for each Local and Remote locations including mean, standad deviation, minimum, maximum, and median.
-To fulfill this criteria we wanted to make visual comparison of the humidity and temperature inside and outside that is easy to understand, so we plotted quadratic function of comparison showed in Figure 3.1. We also wanted to show the accurate temperature variation using standard deviation calculated using maximum and minimum measurments from 4 sensors a each recording. We then smoothed data so that client canuse visual data without any problems when analyzing it.
-*Screenshots of the graphs
+To fulfill this criteria we wanted to make visual comparison of the humidity and temperature inside and outside that is easy to understand, so we plotted quadratic function of comparison showed in Figure 3.1. We also wanted to show the accurate temperature variation using standard deviation calculated using maximum and minimum measurments from 4 sensors a each recording. We then smoothed data so that client can use visual data without any problems when analyzing it. In the Figure 3.3 we used mean temperature, difference between maximum and minimum temperture and plotted a graph that would show the range of the temperature based on the differnces in the separate recordings of sensors individualy. We recognized a pattern when extacting data so we made an algorithm Code 4.1 which first used a for loop in order to put all the data where it is supposed to be. Then we used our mathematical moduling skills to graph a mean temperature graph using np.polyfit for pwr 3 which gave us a clear line which is not only visually pleasing but is also easy to use for client when they wanted to understand the trend in temperature change. To give them the most realsistic presentation of the data we included the standard deviation calculated by the difference in temperature recordings from the sensors seperatelly.
+
+```.py
+for i in range(576):
+    x.append(i/12)
+temp_max = []
+hum_max = []
+temp_min = []
+hum_min = []
+temp_dif = []
+for i in range(576):
+    avarage_temp.append((data1temp[i] + data2temp[i] + data3temp[i] + data4temp[i]) / 4)
+    avarage_hum.append((data1hum[i] + data2hum[i] + data3hum[i] + data4hum[i]) / 4)
+    temp_max.append(max(data1temp[i] ,data2temp[i] , data3temp[i] , data4temp[i]))
+    temp_min.append(min(data1temp[i] ,data2temp[i] , data3temp[i] , data4temp[i]))
+    hum_max.append(max(data1hum[i],data2hum[i],data3hum[i],data4hum[i]))
+    hum_min.append(min(data1hum[i],data2hum[i],data3hum[i],data4hum[i]))
+    temp_dif.append(temp_max[i]-temp_min[i])
+y_third = []
+x,avarage_temp=smoothing(avarage_temp)
+x,temp_dif=smoothing(temp_dif)
+p= np.polyfit(x,avarage_temp, 3)  # 2 means power of 2
+for i in x:
+    y_third.append(p[0]* (i**3) + p[1] * (i ** 2) + p[2] * i + p[3])
+plt.errorbar(x,y_third,temp_dif,color='#771299')
+plt.title(f"Mean temperature with standard deviation recived during that recording from 13:05 10.12.2022 - 01:05 11.12.2022")
+plt.xlabel("Hours")
+plt.ylabel("Temperature (Celsius)")
+plt.show()
+
+```
 
 ### 5. The client wanted the Local samples stored in a .csv file and posted to the remote server. We did this by uploading recordings to the server using the following code
 
@@ -366,42 +395,47 @@ print(f"It worked {datetime.now()} \n")
 We developed a program that fulfilled client's criteria by calculating the coefficents of quadratic equations for the graph using np.polyfit, and then an algorithm which stored the data which was then plotted. The margin error was calculating by dividing the difference in data at that time period during the two days.
 #### Code 6.1
 ```.py
-plt.subplot(2,1,1)
-x3,mean_temp_out=smoothing(temperature_readings_out)
-y_quad=[]
-y_quad4=[]
-p0,p1,p2 = np.polyfit(x3,mean_temp_out,2)#2 means power of 2
-q0,q1,q2 = np.polyfit(x3,mean_per_hour_temp,2)#2 means power of 2
+# predicting the weather for subseqyent 12 hours
+prediction_temp_12h_higher = []
+prediction_temp_12h_lower = []
+x_pred = []
+# Predicting the weather for the next 12 hours with 4.5% error margin after calculating the difference in the outside weather from the 2 days before compared to today
 
-for i in x3:
-    y_quad.append(p0*(i**2)+p1*i+p2)
-    y_quad4.append(q0*(i**2)+q1*i+q2)
-
-plt.plot(x3,y_quad,color="blue")
-plt.title(f"Comparison:mean outside temp(BLUE) vs mean inside temp(RED)13:05 8.12.2022 - 13:05 10.12.2022")
+for i in range(144):  # 576 readings for 48 hours-> 144 for 12h
+    prediction_temp_12h_higher.append(avarage_temp[
+                                          i + 144] * 1.045)  # +144 because the data from 24th to 36th hour of recording is most aplicable for the prediction
+    prediction_temp_12h_lower.append(avarage_temp[i + 144] * 0.955)
+    x_pred.append(i / 12)
+plt.fill_between(x_pred, prediction_temp_12h_lower, prediction_temp_12h_higher, alpha=.5, linewidth=0)
+plt.plot(x_pred, avarage_temp[144:288], linewidth=2)
+plt.title(f"Prediction of the temperature for the subsequent 12 hours from 13:05 10.12.2022 - 01:05 11.12.2022")
 plt.xlabel("Hours")
 plt.ylabel("Temp (Celsius)")
-plt.plot(x3,y_quad4,color='red')
-
+plt.show()
 ```
 #### Code 6.2
 ```.py
-plt.subplot(2,1,2)
-x4,mean_hum_out=smoothing(humidity_readings_out)
-y_quad2=[]
-y_quad3=[]
-p0,p1,p2 = np.polyfit(x3,mean_hum_out,2)#2 means power of 2
-q0,q1,q2 = np.polyfit(x3,mean_per_hour_hum,2)#2 means power of 2
+rediction_hum_12h_higher = []
+prediction_hum_12h_lower = []
+x_pred = []
+# Predicting the weather for the next 12 hours with 4.5% error margin after calculating the difference in the outside weather from the 2 days before compared to today
 
-for i in x4:
-    y_quad2.append(p0*(i**2)+p1*i+p2)
-    y_quad3.append(q0*(i**2)+q1*i+q2)
-
-plt.plot(x4,y_quad2,color="blue")
-plt.plot(x4,y_quad3,color='red')
-plt.title(f"Comparison:mean outside humidity(BLUE) vs mean inside humidity(RED)13:05 8.12.2022 - 13:05 10.12.2022")
+for i in range(144):  # 576 readings for 48 hours-> 144 for 12h
+    prediction_hum_12h_higher.append(avarage_hum[
+                                         i + 144] * 1.2)  # +144 because the data from 24th to 36th hour of recording is most aplicable for the prediction
+    prediction_hum_12h_lower.append(avarage_hum[i + 144] * 0.8)
+    x_pred.append(i / 12)
+y_quad = []
+p0, p1, p2 = np.polyfit(x_pred, avarage_hum[288:(288 + len(x_pred))], 2)  # 2 means power of 2
+for i in x_pred:
+    y_quad.append(p0 * (i ** 2) + p1 * i + p2)
+plt.plot(x_pred, y_quad, color="red")
+plt.errorbar(x_pred,y_quad,1.5,color='blue')
+plt.title(f"Prediction of the Humidity for the subsequent 12 hours from 13:05 10.12.2022 - 01:05 11.12.2022")
 plt.xlabel("Hours")
 plt.ylabel("Humidity (%)")
+
+plt.show()
 ```
 
 #### Figure 6.1 shows the prediction of the temperature in the room for the subsequent 12 hours after the measuring took place.
