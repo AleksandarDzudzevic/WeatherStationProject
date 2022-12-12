@@ -106,6 +106,7 @@ Fig 5. In this flow diagram above, it shows the function that extracts the data 
 #### Data consisting of the humidity and temperature levels during the 48-hour period when the recording was done was both recorded in a csv file and posted on the server. The example of the readings stored in a .csv file is given in the figure below.
 ![We used a .csv file to store 48hours worth of data measured every 5 min. Each row has a time when data was recorded, tempratures and humidity from all 4 sensors, median temperature and humidity](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/crietria-c-proof5.1.png)
 
+#### Code used for gathering data (explained later in the criteria C development)
 ```.py
 def get_readings(): #Intentionally not done in a for loop because this way we could see if there is an error with data sending we knowwhich sensor is the problem
     humidity1, temperature1 = Adafruit_DHT.read_retry(11, sensor_1_pin)
