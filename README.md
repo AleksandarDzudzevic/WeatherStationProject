@@ -161,7 +161,7 @@ print(f"It worked {datetime.now()} \n")
 
 We fulfilled criteria 1 by first using Decomposing part of CT and divided graph plotting into separate parts of the code. The Code 1.1  and 1.2 plots the representation of humidity and temperature readings during the 48h period. They consists of pattern recognition for calculating and storing mean value of the data from all 4 sensors,for smoothing data making the graphs visibility better, and for plotting of separate graphs for sensors individualy.
 
-The outside data was presented using the comparison graph (Figure 1.3) The code for this (Code 1.3) was developed by first decomposing data into humidity and temperature segment. To get the data we developed an algorithm (Code 1.4) which checks if the id of the reading is in the certain range which represents the time period when 48hours of recording happend.
+The outside data was presented using the comparison graph (Figure 1.4) The code for this (Code 1.3) was developed by first decomposing data into humidity and temperature segment. To get the data we developed an algorithm (Code 1.4) which checks if the id of the reading is in the certain range which represents the time period when 48hours of recording happend.
 #### Code 1.1 Shows code used for plotting graphs for humidity data recorded during 48 hours.
 ```.py
 # Graph for humidity
@@ -263,7 +263,9 @@ plt.show()
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/humidity_all_sensors_mean.png)
 #### Figure 1.2 shows mean temperature in the dorm and the temperature readings from all sensors individually.
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/temp_allsensors_mean.png)
-#### Figure 1.3 shows the relation between humidity and temperature inside the room and outside 
+#### Figure 1.3 shows the humidity and temperature recordings from the outside sensor during the 48 hour recording period
+![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/rawoutsidetemphum.png)
+#### Figure 1.4 shows the relation between humidity and temperature inside the room and outside 
 ![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/comparison_graphs_outside_inside.png)
 
  
