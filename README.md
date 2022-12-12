@@ -309,6 +309,8 @@ The development of the part of the program that fulfilled this criteria was firs
 ### 4. The solution provides a comparative analysis for the Humidity and Temperature levels for each Local and Remote locations including mean, standad deviation, minimum, maximum, and median.
 To fulfill this criteria we wanted to make visual comparison of the humidity and temperature inside and outside that is easy to understand, so we plotted quadratic function of comparison showed in Figure 3.1. We also wanted to show the accurate temperature variation using standard deviation calculated using maximum and minimum measurments from 4 sensors a each recording. We then smoothed data so that client can use visual data without any problems when analyzing it. In the Figure 3.3 we used mean temperature, difference between maximum and minimum temperture and plotted a graph that would show the range of the temperature based on the differnces in the separate recordings of sensors individualy. We recognized a pattern when extacting data so we made an algorithm Code 4.1 which first used a for loop in order to put all the data where it is supposed to be. Then we used our mathematical moduling skills to graph a mean temperature graph using np.polyfit for pwr 3 which gave us a clear line which is not only visually pleasing but is also easy to use for client when they wanted to understand the trend in temperature change. To give them the most realsistic presentation of the data we included the standard deviation calculated by the difference in temperature recordings from the sensors seperatelly.
 
+In adition to this we did a comparative analysis using the data of what is the proportion of mean temperature recordings that were in rnage of the optimal room temperature. Figure 4.1 and Code 4.2
+#### Code 4.1
 ```.py
 for i in range(576):
     x.append(i/12)
@@ -338,7 +340,22 @@ plt.ylabel("Temperature (Celsius)")
 plt.show()
 
 ```
+#### Code 4.2
+```.py
+    if (avarage_temp[i]>=20 and avarage_temp[i]<=22 ):
+        counter_for_good_temp+=1
+temperature_good_bad=[counter_for_good_temp,576]
+mylabels=["Recorded optimal temperature in the room","Recorded unoptimal temperature in the rooms"]
+mycolors=["#109010","#901010"]
+myexplode=[0.3,0]
 
+plt.pie(temperature_good_bad,labels = mylabels,colors=mycolors,explode=myexplode,shadow=True,startangle = 90)
+plt.title(" The chart represents what part of the mean temperature readings were in range of the optimal room temperature  (20-22 celsius)")
+plt.legend()
+plt.show()
+```
+#### Figure 4.1
+![](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/pie_chart_optimaltemp.png)
 ### 5. The client wanted the Local samples stored in a .csv file and posted to the remote server. We did this by uploading recordings to the server using the following code
 
 > We used the following function to send the data to the server y using /reading/new endpoint on the server API. It allowed us to create a record for a sensor in the server. The user logged in is the owner of the record. 
@@ -460,5 +477,6 @@ A 7 min video demonstrating the proposed solution with narration
 5. Tino. “Tino/PyFirmata: Python Interface for the Firmata (Http://Firmata.org/) Protocol. It Is Compliant with Firmata 2.1. Any Help with Updating to 2.2 Is Welcome. the Capability Query Is Implemented, but the Pin State Query Feature Not Yet.” GitHub, https://github.com/tino/pyFirmata. 
 6. Python Geeks. “Advantages of Python: Disadvantages of Python.” Python Geeks, 26 June 2021, https://pythongeeks.org/advantages-disadvantages-of-python/. 
 7. Real Python. “Python vs C++: Selecting the Right Tool for the Job.” Real Python, Real Python, 19 June 2021, https://realpython.com/python-vs-cpp/#memory-management. 
-8. BCR, Chris @. “Setting up a Cron Job on the Raspberry Pi.” BC Robotics, 5 Feb. 2022, https://bc-robotics.com/tutorials/setting-cron-job-raspberry-pi/. | 
+8. BCR, Chris @. “Setting up a Cron Job on the Raspberry Pi.” BC Robotics, 5 Feb. 2022, https://bc-robotics.com/tutorials/setting-cron-job-raspberry-pi/. 
+
 9."Matplotlib Pie Charts", 9 October 2019 https://www.w3schools.com/python/matplotlib_pie_charts.asp
