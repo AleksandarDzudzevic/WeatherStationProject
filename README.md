@@ -502,4 +502,4 @@ A 7 min video demonstrating the proposed solution with narration
 7. Real Python. “Python vs C++: Selecting the Right Tool for the Job.” Real Python, Real Python, 19 June 2021, https://realpython.com/python-vs-cpp/#memory-management. 
 8. BCR, Chris @. “Setting up a Cron Job on the Raspberry Pi.” BC Robotics, 5 Feb. 2022, https://bc-robotics.com/tutorials/setting-cron-job-raspberry-pi/. 
 
-9."Matplotlib Pie Charts", 9 October 2019 https://www.w3schools.com/python/matplotlib_pie_charts.asp
+9. "Matplotlib Pie Charts", 9 October 2019 https://www.w3schools.com/python/matplotlib_pie_charts.asp
