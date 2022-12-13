@@ -421,7 +421,7 @@ print(f"It worked {datetime.now()} \n")
 Code 5.2 Getting the readings from all sensors  and putting them into a .csv file(The recognition of the pattern  was present but it was not done, explained in the commemnt)
 
 ![We used a .csv file to store 48hours worth of data measured every 5 min. Each row has a time when data was recorded, tempratures and humidity from all 4 sensors, median temperature and humidity](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/crietria-c-proof5.1.png)
-Figure 5.1 shows the recorded data stored in the .csv file. The data was measured everyb5 minutes for 48 hours for a totl of 576 data units.
+Figure 5.1 shows the recorded data stored in the .csv file. The data was measured every 5 minutes for 48 hours for a totl of 576 data units.
 
 
 ### 6. The client wanted a prediction the subsequent 12 hours for both temperature and humidity.
