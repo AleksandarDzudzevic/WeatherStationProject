@@ -110,8 +110,7 @@ Data consisting of the humidity and temperature levels during the 48-hour period
 
 #### Fig Ds.1 Shows the .csv file where we stored data
 
-![We used a .csv file to store 48hours worth of data measured every 5 min. Each row has a time when data was recorded, tempratures and humidity from all 4 sensors, median temperature and humidity]
-(https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/csv%20data.file.png)
+![We used a .csv file to store 48hours worth of data measured every 5 min. Each row has a time when data was recorded, tempratures and humidity from all 4 sensors, median temperature and humidity](https://github.com/AleksandarDzudzevic/Project_unit_2/blob/main/csv%20data.file.png)
 
 #### Fig Ds.2 Showing data uploaded on to the server. Specific data we used was aquired by developing a program which checks sensor id and id of the recording and only requests specific data for the specific time period. 
 
