@@ -494,8 +494,13 @@ Figure 6.2 shows the prediction of the humidity in the room for the subsequent 1
 
 
 # Criteria D: Functionality
-
 A 7 min video demonstrating the proposed solution with narration
+
+## The original video 8 minutes long
+![](https://drive.google.com/file/d/1dk5Eqo3BJEklif5eA4tm8dgPalHmTelK/view?usp=sharing)
+
+## The 7 minute version of the video (Funnier one)
+![](https://drive.google.com/file/d/13hSb5WiIVMPd0qdHTvbq82yZodziZrlx/view?usp=sharing)
 
 # Citations
 1. Industries, Adafruit. “DHT11 Basic Temperature-Humidity Sensor + Extras.” Adafruit Industries Blog RSS, https://www.adafruit.com/product/386. 
